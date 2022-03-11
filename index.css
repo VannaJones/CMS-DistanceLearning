@@ -8,6 +8,13 @@ body {
   height: 100vh;
   background: #ffffff;
 }
+.bg-login {
+  background-image: url("01.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .topnav,
 .top {
   background-color: #1c62b0;
@@ -19,7 +26,7 @@ body {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
 }
 .topnav a:hover {
   background-color: #ddd;
@@ -38,7 +45,7 @@ body {
   color: #000000;
   text-decoration: none;
   padding: 10px;
-  font-size: 17px;
+  font-size: 17apx;
   margin-right: 10px;
 }
 .secnav .list:hover {
@@ -166,4 +173,11 @@ ul {
 }
 .admission-image img {
   height: 400px;
+}
+.degree-image img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  margin-left: 10px;
+  margin-right: 10px;
 }
