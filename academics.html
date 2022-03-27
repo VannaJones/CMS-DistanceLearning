@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WMSU Distance Learning | About Us</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="font-awesome-colors.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -38,16 +39,13 @@
     </div>
 
     <!--Lower Navigations-->
-    <div class="col sectop sticky-top">
+    <div class="col sectop sticky-top shadow">
       <div class="secnav container py-2">
-        <img src="WMSU-DL.png" height="75px" class="float-start" />
+        <img src="./sample-img/WMSU-DL.png" height="75px" class="float-start" />
         <div class="d-flex align-items-center justify-content-end py-2">
           <a href="index.html" class="list"> <i class="fa fa-home"></i> HOME</a>
           <a href="about.html" class="list">
             <i class="fa fa-question-circle"></i> ABOUT</a
-          >
-          <a href="news.html" class="list">
-            <i class="fa fa-newspaper-o"></i> NEWS</a
           >
           <a href="admissions.html" class="list">
             <i class="fa fa-university"></i> ADMISSIONS</a
@@ -66,16 +64,20 @@
     </div>
     <!--Academic Header-->
     <div class="header-image">
-      <img src="acads-header.jpg" class="w-100" alt="..." />
+      <img src="./sample-img/acads-header.jpg" class="w-100" alt="..." />
     </div>
     <div class="text-center m-4">
       <h3><b>Master Degree Programs</b></h3>
     </div>
     <!--Degree Offers-->
-    <div class="card p-5 mx-auto w-100 h-auto">
+    <div class="card p-5 mx-auto w-100 h-auto" id="CTE">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="edu-sample.jpg" class="img-fluid rounded-start" alt="..." />
+          <img
+            src="./sample-img/edu-sample.jpg"
+            class="img-fluid rounded-start"
+            alt="..."
+          />
         </div>
         <div class="col-md-8">
           <div class="card-body ps-5" id="CTE">
@@ -89,8 +91,50 @@
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum."
             </p>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Programs Offered
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Master of Arts in Education Major in Special Education</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Master of Arts in Education Major in Guidance and
+                    Counseling</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Master of Arts in Education Major in Educational
+                    Administration</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Master of Arts in Education Major in Early Childhood Study
+                    and Development</a
+                  >
+                </li>
+              </ul>
+            </div>
             <p class="card-text pt-3">
-              <button class="btn btn-primary" type="button">Enroll Now</button>
+              Enrolled Students:<i class="fa fa-female me-3 ms-3">&nbsp;78</i>
+              <i class="fa fa-male">&nbsp;135</i>
+            </p>
+            <p class="card-text pt-1">
+              <button class="btn btn-primary" type="button">
+                Register Now
+              </button>
             </p>
           </div>
         </div>
@@ -100,7 +144,7 @@
       <div class="row g-0">
         <div class="col-md-4">
           <img
-            src="nursing-sample.jpg"
+            src="./sample-img/nursing-sample.jpg"
             class="img-fluid rounded-start"
             alt="..."
           />
@@ -117,8 +161,49 @@
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum."
             </p>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Programs Offered
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Master of Arts in Nursing Major in Nurse Practioner</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Master of Arts in Nursing Major in Clinical Nurse
+                    Specialist</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Master of Arts in Nursing Major in Certified Nurse
+                    Midwife</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Master of Arts in Nursing Major in Public Health</a
+                  >
+                </li>
+              </ul>
+            </div>
             <p class="card-text pt-3">
-              <button class="btn btn-primary" type="button">Enroll Now</button>
+              Enrolled Students:<i class="fa fa-female me-3 ms-3">&nbsp;102</i>
+              <i class="fa fa-male">&nbsp;105</i>
+            </p>
+            <p class="card-text pt-1">
+              <button class="btn btn-primary" type="button">
+                Register Now
+              </button>
             </p>
           </div>
         </div>
@@ -131,9 +216,13 @@
           <div class="footer-col">
             <h3>Western Mindanao <br />State University</h3>
             <b>Normal Road, <br />7000 Zamboanga City<br />Philippines</b>
+            <a class="pt-2" href="index.html"
+              ><button type="button" class="btn btn-primary btn-sm">
+                <i class="fa fa-home"></i> Home
+              </button></a
+            >
           </div>
           <div class="footer-col">
-            <a href="index.html">Home</a>
             <h4>Programs</h4>
             <ul>
               <li><a href="academics.html#CTE">College of Education</a></li>
@@ -170,9 +259,9 @@
           <div class="footer-col">
             <h4>Follow us</h4>
             <div class="social-links">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
             </div>
           </div>
         </div>

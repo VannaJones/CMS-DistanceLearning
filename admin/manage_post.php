@@ -1,6 +1,6 @@
 <?php
-require('top.inc.php');
-
+include ('top.inc.php');
+include ('../dbconnect/connection.php');
 ?>
 <div class="content pb-0">
             <div class="orders">
@@ -13,72 +13,50 @@ require('top.inc.php');
                         </div>
                         <div class="card-body--">
                            <div class="table-stats order-table ov-h">
-                              <table class="table ">
+                           
+                              <table class="table">
                                  <thead>
                                     <tr>
                                        <th class="serial">ID</th>
                                        <th></th>
-                                       <th>Categories</th>
-                                       <th>Name</th>
+                                       <th></th>
+                                       <th>Title</th>
                                        <th>Image</th>
                                        <th></th>
                                        <th>Content</th>
-                                       
                                        <th>Action</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    
+                                    <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from post");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?> 
                                     <tr>
-                                       <td class="serial">1</td>
-                                       <td></td>
-                                       <td>Lorem Ipmsum</td>
-                                       <td>John</td>
-                                       <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></td>
-                                     
+                                       <td class="serialph"><?php echo $row['id']; ?></td>
                                        <td></td>
                                        <td></td>
+                                       <td><?php echo $row['title']; ?></td>
+                                       <td><img src="../<?php echo $row['image']?>"/></td>
+                              
+                                       <td></td>
+                                       <td><?php echo $row['content']; ?></td>
                                        <td>
                                        
                                       
-                                          <span class='badge badge-complete'><a href="#"
-                                         >View</a></span>&nbsp;
-                                    
-                                      
-                                       
-                                       <span class='badge badge-edit'><a href="#">Edit</a></span>&nbsp;
-                                      <span class='badge badge-delete'><a href="#".>Delete</a></span>
+                                       <button class='badge badge-complete btn btn-primary'><a href="#">View</a></button>&nbsp;
+                                       <button class='badge badge-edit' name='update'><a href="Editpost.php">Edit</a></button>&nbsp;
+                                       <button class='badge badge-delete' name='delete'><a href="delete.php?id=<?php echo $row['id']; ?>" onclick="confirm('Are you sure you want delete?');">Delete</a></button>
                                      
                                     
                                        </td>
                                     </tr>
-
-                                    <tr>
-                                       <td class="serial">2</td>
-                                       <td></td>
-                                       <td>Lorem</td>
-                                       <td>John Doe</td>
-                                       <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></td>
-                                     
-                                       <td></td>
-                                       <td></td>
-                                       <td>
-                                       
-                                      
-                                          <span class='badge badge-complete'><a href="#"
-                                         >View</a></span>&nbsp;
-                                    
-                                      
-                                       
-                                       <span class='badge badge-edit'><a href="#">Edit</a></span>&nbsp;
-                                      <span class='badge badge-delete'><a href="#".>Delete</a></span>
-                                     
-                                    
-                                       </td>
-                                    </tr>
-                                   
+                                    <?php }?>
                                  </tbody>
                               </table>
+
                            </div>
                         </div>
                      </div>
