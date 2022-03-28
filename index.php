@@ -19,12 +19,13 @@
       crossorigin="anonymous"
     ></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WMSU Distance Learning</title>
+    <title>WMSU Distance Learning | Home</title>
     <link rel="stylesheet" href="index.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="icon" type="image/png" href="./sample-img/logo.png"/>
   </head>
   <div>
     <!--Upper Navigation Bar-->
@@ -93,15 +94,17 @@
           ></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img src="./sample-img/01.jpg" class="d-block w-100" alt="..." />
+          <?php
+                                     include ('./dbconnect/connection.php');
+                                      $query=mysqli_query($con,"select * from home_banner");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+          <div class="carousel-item <?php if($row['hb_id'] == 1 ){ echo "active";}?>" data-bs-interval="10000">
+            <img src="./sample-img/<?php echo $row['img'];?>" class="d-block w-100"/>
           </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="./sample-img/02.jpg" class="d-block w-100" alt="..." />
-          </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="./sample-img/03.jpg" class="d-block w-100" alt="..." />
-          </div>
+          <?php }?>
         </div>
         <button
           class="carousel-control-prev"

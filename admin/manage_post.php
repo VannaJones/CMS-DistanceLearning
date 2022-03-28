@@ -8,7 +8,7 @@ include ('../dbconnect/connection.php');
                   <div class="col-xl-12">
                      <div class="card">
                         <div class="card-body">
-                           <h4 class="box-title">MANAGE POSTS</h4>
+                           <h4 class="box-title">Manage Post</h4>
                            <h4 class="box-link"><a href="manage_product.php"></a> </h4>
                         </div>
                         <div class="card-body--">
@@ -48,7 +48,7 @@ include ('../dbconnect/connection.php');
                                       
                                        <button class='badge badge-complete btn btn-primary'><a href="#">View</a></button>&nbsp;
                                        <button class='badge badge-edit' name='update'><a href="Editpost.php">Edit</a></button>&nbsp;
-                                       <button class='badge badge-delete' name='delete'><a href="delete.php?id=<?php echo $row['id']; ?>" onclick="confirm('Are you sure you want delete?');">Delete</a></button>
+                                       <button class='badge badge-delete' ><a href="delete.php?id=<?php echo $row['id']; ?>&action=m-delete"  onclick="confirm('Are you sure you want delete?');">Delete</a></button>
                                      
                                     
                                        </td>
@@ -64,6 +64,7 @@ include ('../dbconnect/connection.php');
                </div>
             </div>
 		  </div>
+        
 <?php
 require('footer.inc.php')
 ?>

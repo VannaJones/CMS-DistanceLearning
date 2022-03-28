@@ -1,16 +1,19 @@
-
 <?php
-include ('../dbconnect/connection.php');
+   include ('../dbconnect/connection.php');
 
-$id = $_GET['id'];
 
-$sql = "update post set name=$name,content=$content where id =$id";   
-$result = mysqli_query($con, $sql);
+    $ha_title = $_POST['ha_title'];
+    $ha_subtitle = $_POST['ha_subtitle'];
+    $ha_desc = $_POST['ha_desc'];
+
+
+    $sql = "insert into home_about(ha_title, ha_subtitle, ha_desc) values('$ha_title', '$ha_subtitle', '$ha_desc')";
+    $result = mysqli_query($con, $sql);
+
     if($result){
-        //echo "deleted";
-        header('location:manage_post.php');
-    }else{
-        echo 'failed: ' . mysqli_error($con);
+       header("location: h-about.php");
+    }else {
+        echo "Failed";
     }
 
 ?>
