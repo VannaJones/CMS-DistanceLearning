@@ -1,5 +1,4 @@
 <?php
-require('top.inc.php');
 include ('../dbconnect/connection.php');
 ?>
 <div class="content pb-0">
