@@ -15,7 +15,7 @@ include ('../../dbconnect/connection.php');
              $username = $row["username"];
              $_SESSION['ADMIN_LOGIN']='yes';
              $_SESSION['ADMIN_USERNAME']=$username;
-                header('location:../manage_post.php');
+                header('location:../admin_index.html');
                 die();
              }
          }

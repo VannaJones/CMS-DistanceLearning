@@ -1,5 +1,5 @@
 <?php
-   include ('../dbconnect/connection.php');
+   include ('../../dbconnect/connection.php');
 
 
     $ha_title = $_POST['ha_title'];
@@ -11,7 +11,7 @@
     $result = mysqli_query($con, $sql);
 
     if($result){
-       header("location: h-about.php");
+       header("location:../home_about.php");
     }else {
         echo "Failed";
     }

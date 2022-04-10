@@ -1,3 +1,6 @@
+<!-- <?php
+  include ('../dbconnect/connection.php'); 
+?> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +15,7 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>CMS | Dashboard</title>
+    <title>CMS | Home Banner</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all" />
@@ -213,17 +216,17 @@
         <div class="menu-sidebar__content js-scrollbar1">
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-              <li class="active">
+              <li>
                 <a href="admin_index.html">
                   <i class="fas fa-desktop"></i>Dashboard</a
                 >
               </li>
-              <li class="has-sub">
+              <li class="has-sub active">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-home"></i>Home Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
-                  <li>
+                  <li class="active">
                     <a href="home_banner.html">Home Banner</a>
                   </li>
                   <li>
@@ -316,9 +319,7 @@
                 <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="../index.php">
-                  <i class="fas fa-globe"></i>View Website</a
-                >
+                <a href="#"> <i class="fas fa-globe"></i>View Website</a>
               </li>
             </ul>
           </nav>
@@ -367,7 +368,9 @@
                           </div>
                         </div>
                         <div class="account-dropdown__footer">
-                          <a href="#"> <i class="zmdi zmdi-power"></i>Logout</a>
+                          <a href="./backend/logout.php">
+                            <i class="zmdi zmdi-power"></i>Logout</a
+                          >
                         </div>
                       </div>
                     </div>
@@ -383,137 +386,134 @@
         <div class="main-content">
           <div class="section__content section__content--p30">
             <div class="container-fluid">
-              <div class="row">
+              <div class="row m-t-10">
                 <div class="col-md-12">
-                  <div class="overview-wrap">
-                    <h2 class="title-1">overview</h2>
-                  </div>
-                </div>
-              </div>
-              <!-- First row of overview -->
-              <div class="row m-t-25">
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-home"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Home Page</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart row p-t-5">
-                        <div class="col-md-8">
-                          <h4 style="color: white">Banner Images</h4>
-                          <h4 style="color: white">Home About</h4>
-                          <h4 style="color: white">Home Programs Offered</h4>
-                        </div>
-                        <div class="col-md-4 text-center">
-                          <h4 style="color: white">8</h4>
-                          <h4 style="color: white">Text</h4>
-                          <h4 style="color: white">2</h4>
-                        </div>
-                      </div>
+                  <!-- DATA TABLE-->
+                  <div class="table-responsive m-b-40">
+                    <div class="float-left">
+                      <h3>Home | Banner Images</h3>
                     </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-question-circle"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">About Page</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart">
-                        <!-- <canvas id="widgetChart2"></canvas> -->
-                      </div>
+                    <div class="float-right pb-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#banner"
+                      >
+                        Add Image
+                      </button>
                     </div>
+                    <table class="table table-borderless table-data3">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Images</th>
+                          <th></th>
+                          <th></th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from home_banner");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['hb_id']; ?></td>
+                          <td>
+                            <img
+                              src="../sample-img/<?php echo $row['img']; ?>"
+                            />
+                          </td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
+                              <button
+                                class="item"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Edit"
+                              >
+                                <i class="zmdi zmdi-edit"></i>
+                              </button>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                          <?php  
+                                      }
+                                      ?>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-university"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Admission</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart">
-                        <!-- <canvas id="widgetChart2"></canvas> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Second Row of Overview -->
-              <div class="row m-t-4">
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-graduation-cap"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Academics</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart">
-                        <!-- <canvas id="widgetChart1"></canvas> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Contact Us</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-clipboard"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Drafts</h3>
-                          <span>Saved Works</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart"></div>
-                    </div>
-                  </div>
+
+                  <!-- END DATA TABLE-->
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="banner"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              INSERT BANNER IMAGE
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="./backend/insert-banner.php&action=add-banner" method="POST">
+              <p>Please input image to display.</p>
+              <label class="label">Image</label>
+              <input type="file" name="hb_img" class="img-banner" />
+              <input type="submit" class="btn btn-primary float-right ml-2" />
+              <button
+                type="button"
+                class="btn btn-secondary float-right"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 

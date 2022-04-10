@@ -47,7 +47,7 @@
             <i class="fa fa-home"></i> HOME</a
           >
           <a href="about.html" class="list">
-            <i class="fa fa-question-circle"></i> ABOUT</a
+            <i class="fa fa-lightbulb-o"></i> ABOUT</a
           >
           <a href="admissions.html" class="list">
             <i class="fa fa-university"></i> ADMISSIONS</a
@@ -128,22 +128,25 @@
     </div>
     <!--About Distance Learning-->
     <div class="p-5" style="background-color: #EEEDED; height: auto; ">
+              <?php
+                                     include ('./dbconnect/connection.php');
+                                      $query=mysqli_query($con,"select * from home_about");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
       <div class="row container">
         <div class="col-md-9">
-          <h3><b>Western Mindanao State University</b></h3>
-          <p>Distance Learning Education 2022</p>
+          <h3><b><?php echo $row['ha_title'];?></b></h3>
+          <p><?php echo $row['ha_subtitle'];?></p>
           <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum."
+              <?php echo $row['ha_desc'];?>
           </p>
           <a href="about.html"><button type="button" class="btn btn-secondary btn-sm">MORE ABOUT WMSU DISTANCE LEARNING</button></a>
         </div>
+      <?php
+                                      }
+                                      ?>
       <div class="col d-flex justify-content-center p-2">
         <img src="./sample-img/logo.png" class="" style="height: 250px;">
       </div>

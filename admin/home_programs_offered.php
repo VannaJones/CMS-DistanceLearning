@@ -1,7 +1,7 @@
 <?php
   include ('../dbconnect/connection.php');
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <!-- Required meta tags-->
@@ -15,7 +15,7 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>CMS | Home Programs Offered</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all" />
@@ -69,9 +69,12 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all" />
+
+    <!-- Logo Title-->
+    <link rel="icon" type="image/png" href="../sample-img/logo.png" />
   </head>
 
-  <body class="animsition">
+  <body>
     <div class="page-wrapper">
       <!-- HEADER MOBILE-->
       <header class="header-mobile d-block d-lg-none">
@@ -93,56 +96,109 @@
           <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
               <li class="has-sub">
-                <a class="js-arrow" href="#">
+                <a class="js-arrow" href="admin_index.html">
                   <i class="fas fa-tachometer-alt"></i>Dashboard</a
+                >
+              </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-home"></i>Home Page</a
                 >
                 <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                   <li>
-                    <a href="index.html">Dashboard 1</a>
+                    <a href="home_banner.html">Home Banner</a>
                   </li>
                   <li>
-                    <a href="index2.html">Dashboard 2</a>
+                    <a href="home_about.html">Home About</a>
                   </li>
                   <li>
-                    <a href="index3.html">Dashboard 3</a>
+                    <a href="home_programs_offered.html"
+                      >Home Programs Offered</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-lightbulb-o"></i>About Page</a
+                >
+                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                  <li>
+                    <a href="about_header.html">Header</a>
                   </li>
                   <li>
-                    <a href="index4.html">Dashboard 4</a>
+                    <a href="about_aboutdesc.html">Distance Learning</a>
+                  </li>
+                  <li>
+                    <a href="#">Mission</a>
+                  </li>
+                  <li>
+                    <a href="#">Vision</a>
+                  </li>
+                  <li>
+                    <a href="#">Rationale</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-university"></i>Admissions Page</a
+                >
+                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                  <li>
+                    <a href="#">Header</a>
+                  </li>
+                  <li>
+                    <a href="#">Requirements</a>
+                  </li>
+                  <li>
+                    <a href="#">Enrolment Procedure</a>
+                  </li>
+                  <li>
+                    <a href="#">Terms and Policy</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-graduation-cap"></i>Academics Page</a
+                >
+                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                  <li>
+                    <a href="#">Header</a>
+                  </li>
+                  <li>
+                    <a href="#">College of Education</a>
+                  </li>
+                  <li>
+                    <a href="#">College of Nursing</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-phone"></i>Contact Us Page</a
+                >
+                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                  <li>
+                    <a href="#">WMSU Contact</a>
+                  </li>
+                  <li>
+                    <a href="#">President's Office</a>
+                  </li>
+                  <li>
+                    <a href="#">Vice President's Office</a>
+                  </li>
+                  <li>
+                    <a href="#">Other Contacts</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="ahome.html">
-                  <i class="fas fa-chart-bar"></i>Home Page</a
-                >
+                <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="table.html"> <i class="fas fa-table"></i>About Page</a>
-              </li>
-              <li>
-                <a href="form.html">
-                  <i class="far fa-check-square"></i>Admissions</a
-                >
-              </li>
-              <li>
-                <a href="calendar.html">
-                  <i class="fas fa-calendar-alt"></i>Academics</a
-                >
-              </li>
-              <li>
-                <a href="map.html">
-                  <i class="fas fa-map-marker-alt"></i>Contact Us Page</a
-                >
-              </li>
-              <li>
-                <a href="map.html">
-                  <i class="fas fa-map-marker-alt"></i>Drafts</a
-                >
-              </li>
-              <li>
-                <a href="map.html">
-                  <i class="fas fa-map-marker-alt"></i>View Website</a
-                >
+                <a href="#"> <i class="fas fa-globe"></i>View Website</a>
               </li>
             </ul>
           </div>
@@ -161,95 +217,109 @@
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
               <li>
-                <a href="index.html">
-                  <i class="fas fa-tachometer-alt"></i>Dashboard</a
+                <a href="admin_index.html">
+                  <i class="fas fa-desktop"></i>Dashboard</a
                 >
               </li>
-              <li class="has-sub">
+              <li class="has-sub active">
                 <a class="js-arrow" href="#">
-                  <i class="fas fa-chart-bar"></i>Home Page</a
+                  <i class="fas fa-home"></i>Home Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
+                  <li>
+                    <a href="home_banner.html">Home Banner</a>
+                  </li>
+                  <li>
+                    <a href="home_about.html">Home About</a>
+                  </li>
                   <li class="active">
-                    <a href="banner_img.html">Banner Images</a>
-                  </li>
-                  <li>
-                    <a href="#">Home About</a>
-                  </li>
-                  <li>
-                    <a href="#">Home Programs Offered</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="has-sub">
-                <a class="js-arrow" href="aabout.html">
-                  <i class="fas fa-chart-bar"></i>About Page</a
-                >
-                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                  <li>
-                    <a href="#">Banner Images</a>
-                  </li>
-                  <li>
-                    <a href="#">Home About</a>
-                  </li>
-                  <li>
-                    <a href="#">Home Programs Offered</a>
+                    <a href="home_programs_offered.html"
+                      >Home Programs Offered</a
+                    >
                   </li>
                 </ul>
               </li>
               <li class="has-sub">
                 <a class="js-arrow" href="#">
-                  <i class="fas fa-chart-bar"></i>Admissions Page</a
+                  <i class="fas fa-lightbulb-o"></i>About Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="#">Banner Images</a>
+                    <a href="about_header.html">Header</a>
                   </li>
                   <li>
-                    <a href="#">Home About</a>
+                    <a href="about_aboutdesc.html">Distance Learning</a>
                   </li>
                   <li>
-                    <a href="#">Home Programs Offered</a>
+                    <a href="about_mission.html">Mission</a>
+                  </li>
+                  <li>
+                    <a href="about_vision.html">Vision</a>
+                  </li>
+                  <li>
+                    <a href="about_rationale.html">Rationale</a>
                   </li>
                 </ul>
               </li>
               <li class="has-sub">
                 <a class="js-arrow" href="#">
-                  <i class="fas fa-chart-bar"></i>Academics Page</a
+                  <i class="fas fa-university"></i>Admissions Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="#">Banner Images</a>
+                    <a href="adm_header.html">Header</a>
                   </li>
                   <li>
-                    <a href="#">Home About</a>
+                    <a href="adm_req.html">Requirements</a>
                   </li>
                   <li>
-                    <a href="#">Home Programs Offered</a>
+                    <a href="adm_enrol.html">Enrolment Procedure</a>
+                  </li>
+                  <li>
+                    <a href="adm_term.html">Terms and Policy</a>
                   </li>
                 </ul>
               </li>
               <li class="has-sub">
                 <a class="js-arrow" href="#">
-                  <i class="fas fa-chart-bar"></i>Contact Us Page</a
+                  <i class="fas fa-graduation-cap"></i>Academics Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="#">Banner Images</a>
+                    <a href="acad_header.html">Header</a>
                   </li>
                   <li>
-                    <a href="#">Home About</a>
+                    <a href="acad_education.html">College of Education</a>
                   </li>
                   <li>
-                    <a href="#">Home Programs Offered</a>
+                    <a href="acad_nursing.html">College of Nursing</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-sub">
+                <a class="js-arrow" href="#">
+                  <i class="fas fa-phone"></i>Contact Us Page</a
+                >
+                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                  <li>
+                    <a href="#">WMSU Contact</a>
+                  </li>
+                  <li>
+                    <a href="#">President's Office</a>
+                  </li>
+                  <li>
+                    <a href="#">Vice President's Office</a>
+                  </li>
+                  <li>
+                    <a href="#">Other Contacts</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#"> <i class="fas fa-chart-bar"></i>Drafts</a>
+                <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="#"> <i class="fas fa-chart-bar"></i>View Website</a>
+                <a href="#"> <i class="fas fa-globe"></i>View Website</a>
               </li>
             </ul>
           </nav>
@@ -318,44 +388,52 @@
                 <div class="col-md-12">
                   <!-- DATA TABLE-->
                   <div class="table-responsive m-b-40">
+                    <div class="float-left pb-4">
+                      <h3>Home | Programs Offered</h3>
+                    </div>
                     <div class="float-right pb-4">
                       <button
                         type="button"
                         class="btn btn-info float-right"
                         data-toggle="modal"
-                        data-target="#banner"
+                        data-target="#hpo_progoff"
                       >
-                        Add Image
+                        Add New
                       </button>
                     </div>
+
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Images</th>
-                          <th></th>
-                          <th></th>
+                          <th>Title</th>
+                          <th>Logo</th>
+                          <th>Programs Offered</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
                                      require ('../dbconnect/connection.php');
-                                      $query=mysqli_query($con,"SELECT * from home_banner");
+                                      $query=mysqli_query($con,"SELECT * from home_progoff");
                                       while($row=mysqli_fetch_array($query))
                                       {
                                     ?>
                         <tr>
-                          <td><?php echo $row['hb_id']; ?></td>
-                          <td>
-                            <img
-                              src="../sample-img/<?php echo $row['img'];?>"
-                            />
-                          </td>
-                          <td></td>
-                          <td></td>
+                          <td><?php echo $row['hpo_id'];?></td>
+                          <td><?php echo $row['hpo_title'];?></td>
+                          <td><?php echo $row['hpo_logo'];?></td>
+                          <td><?php echo $row['hpo_progoff'];?></td>
                           <td>
                             <div class="table-data-feature">
+                              <button
+                                class="item"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Edit"
+                              >
+                                <i class="zmdi zmdi-edit"></i>
+                              </button>
                               <a
                                 href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
                                 onclick="confirm('Are you sure you want delete?');"
@@ -371,28 +449,13 @@
                               </a>
                             </div>
                           </td>
+                          <?php
+                                      }
+                                      ?>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-                  <div class="modal" id="banner" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Banner</h5>
-                          <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                          >
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                   <!-- END DATA TABLE-->
                 </div>
               </div>
@@ -404,17 +467,61 @@
         <!-- END PAGE CONTAINER-->
       </div>
     </div>
-    <div class="modal-body">
-      <form action="insert-banner.php" method="POST">
-        <p>Please input image to display.</p>
-        <label class="label">Image</label>
-        <input type="file" name="hb_img" class="img-banner" />
-
-        <input type="submit" class="btn btn-primary" />
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Cancel
-        </button>
-      </form>
+        <!-- Modal -->
+    <div class="modal" id="hpo_progoff" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Home Programs Offered Details</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="./backend/update.php" method="POST">
+              <p>Add Program</p>
+              <input
+                class="form-control w-100 mt-3"
+                type="text"
+                placeholder="Title"
+                name="hpo_title"
+              />
+              <br />
+              <label class="label">Add Logo Image</label>
+              <input type="file" name="hpo_logo" class="img-banner" />
+              <br />
+              <br />
+              <input
+                class="form-control w-100"
+                type="text"
+                placeholder="Sub Title"
+                name="ha_subtitle"
+              />
+              <br />
+              <textarea
+                name="ha_desc"
+                class="form-control w-100"
+                rows="10"
+                placeholder="Description"
+              ></textarea>
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
