@@ -391,6 +391,16 @@
                     <div class="float-left pb-4">
                       <h3>About | About Distance Learning</h3>
                     </div>
+                    <div class="float-right pb-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#ha_aboutdesc"
+                      >
+                        Add New
+                      </button>
+                    </div>
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
@@ -443,6 +453,55 @@
 
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="ha_aboutdesc" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">About Distance Learning Details</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="./backend/update.php" method="POST">
+              <p>Add Distance Learning Informations</p>
+              <input
+                class="form-control w-100 mt-3"
+                type="text"
+                placeholder="Title"
+                name="ha_title"
+              />
+              <br />
+              <label class="label">Add Logo Image</label>
+              <input type="file" name="ha_logo" class="img-banner" />
+              <br />
+              <br />
+              <textarea
+                name="ha_desc"
+                class="form-control w-100"
+                rows="10"
+                placeholder="Description"
+              ></textarea>
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Jquery JS-->
