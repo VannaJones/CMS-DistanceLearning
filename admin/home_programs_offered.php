@@ -227,13 +227,13 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="home_banner.html">Home Banner</a>
+                    <a href="home_banner.php">Home Banner</a>
                   </li>
                   <li>
-                    <a href="home_about.html">Home About</a>
+                    <a href="home_about.php">Home About</a>
                   </li>
                   <li class="active">
-                    <a href="home_programs_offered.html"
+                    <a href="home_programs_offered.php"
                       >Home Programs Offered</a
                     >
                   </li>
@@ -245,13 +245,13 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="about_header.html">Header</a>
+                    <a href="about_header.php">Header</a>
                   </li>
                   <li>
-                    <a href="about_aboutdesc.html">Distance Learning</a>
+                    <a href="about_aboutdesc.php">Distance Learning</a>
                   </li>
                   <li>
-                    <a href="about_mission.html">Mission</a>
+                    <a href="about_mission.php">Mission</a>
                   </li>
                   <li>
                     <a href="about_vision.html">Vision</a>

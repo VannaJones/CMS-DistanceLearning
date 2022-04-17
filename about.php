@@ -1,3 +1,6 @@
+<?php
+    include ('./dbconnect/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,73 +67,93 @@
     </div>
     <!--About Us Header Image-->
     <div class="header-image">
-      <img src="./sample-img/about-header.jpg" class="w-100" alt="..." />
+                          <?php
+                                      $query=mysqli_query($con,"select * from about_header");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+      <img src="./sample-img/<?php echo $row['about_img'];?>" class="w-100" alt="..." />
+              <?php 
+                                      }
+                                      ?>
     </div>
     <!--Distance Learning Description-->
     <div class="container p-3 pt-5" id="wmsu-dl">
+                                <?php
+                                      $query=mysqli_query($con,"select * from about_dldesc");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
       <div class="row">
         <div class="col-md-3">
-          <img src="./sample-img/logo.png" height="200" width="200" />
+          <img src="./sample-img/<?php echo $row['about_dl_logo'];?>" height="200" width="200" />
         </div>
-
         <div class="col">
-          <h3 class="mb-5 mt-1">WMSU Distance Learning</h3>
+          <h3 class="mb-5 mt-1"><?php echo $row['about_dl_title'];?></h3>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
+            <?php echo $row['about_dl_desc'];?>
           </p>
         </div>
       </div>
+                    <?php 
+                                      }
+                                      ?>
     </div>
     <!--Mission and Vision-->
     <div class="container p-3">
       <div class="row">
         <div class="col pe-3" id="wmsu-mis">
-          <h3>Mission</h3>
+                                          <?php
+                                      $query=mysqli_query($con,"select * from about_mis");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+          <h3><?php echo $row['about_mis_title'];?></h3>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
+            <?php echo $row['about_mis_desc'];?>
           </p>
+          <?php 
+                                      }
+                                      ?>
         </div>
         <div class="col" id="wmsu-vis">
-          <h3>Vission</h3>
+           <?php
+                                      $query=mysqli_query($con,"select * from about_vis");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+          <h3><?php echo $row['about_vis_title'];?></h3>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
+           <?php echo $row['about_vis_desc'];?>
           </p>
+                    <?php 
+                                      }
+                                      ?>
         </div>
       </div>
     </div>
     <div class="container p-3">
+    <?php
+                                      $query=mysqli_query($con,"select * from about_rat");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+    ?>
       <div class="row">
         <div class="col ps-3" id="wmsu-rat">
-          <h3>Rationale or History</h3>
+          <h3><?php echo $row['about_rat_title'];?></h3>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
+            <?php echo $row['about_rat_desc'];?>
           </p>
         </div>
       </div>
+        <?php 
+                              }
+        ?>
     </div>
     <!--Footer-->
     <footer class="footer">

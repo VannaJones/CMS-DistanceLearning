@@ -1,3 +1,6 @@
+<?php
+    include ('./dbconnect/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,10 +68,25 @@
     </div>
     <!--Academic Header-->
     <div class="header-image">
-      <img src="./sample-img/acads-header.jpg" class="w-100" alt="..." />
+      <?php
+                                      $query=mysqli_query($con,"select * from acad_header");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+      <img
+        src="./sample-img/<?php echo $row['acad_header_img'];?>"
+        class="w-100"
+        alt="..."
+      />
     </div>
     <div class="text-center m-4">
-      <h3><b>Master Degree Programs</b></h3>
+      <h3>
+        <b><?php echo $row['acad_header_title'];?></b>
+      </h3>
+      <?php
+            }
+      ?>
     </div>
     <!--Degree Offers-->
     <div class="card p-5 mx-auto w-100 h-auto" id="CTE">

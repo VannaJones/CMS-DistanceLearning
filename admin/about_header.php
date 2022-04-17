@@ -245,13 +245,13 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li class="active">
-                    <a href="about_header.html">Header</a>
+                    <a href="about_header.php">Header</a>
                   </li>
                   <li>
-                    <a href="about_aboutdesc.html">Distance Learning</a>
+                    <a href="about_aboutdesc.php">Distance Learning</a>
                   </li>
                   <li>
-                    <a href="about_mission.html">Mission</a>
+                    <a href="about_mission.php">Mission</a>
                   </li>
                   <li>
                     <a href="about_vision.html">Vision</a>
@@ -438,7 +438,7 @@
                                 <i class="zmdi zmdi-edit"></i>
                               </button>
                               <a
-                                href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
+                                href="./backend/delete.php?id=<?php echo $row['about_id'];?>&action=del-abouthead"
                                 onclick="confirm('Are you sure you want delete?');"
                               >
                                 <button
@@ -496,7 +496,7 @@
           </div>
           <div class="modal-body">
             <form
-              action="./backend/insert-banner.php&action=add-about-header"
+              action="./backend/insert-banner.php?action=add-aboutheader"
               method="POST"
             >
               <p>Please input image to display.</p>

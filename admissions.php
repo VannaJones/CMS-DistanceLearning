@@ -1,3 +1,6 @@
+<?php
+    include ('./dbconnect/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,8 +67,23 @@
     </div>
     <!--Admission Header-->
     <div class="text-center admission-image pt-2">
-      <img src="./sample-img/admission-header.jpg" class="rounded" alt="..." />
-      <h3 class="p-4"><b>Admission Guide</b></h3>
+      <?php
+                                      $query=mysqli_query($con,"select * from adm_header");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+      <img
+        src="./sample-img/<?php echo $row['adm_header_img'];?>"
+        class="rounded"
+        alt="..."
+      />
+      <h3 class="p-4">
+        <b><?php echo $row['adm_header_title'];?></b>
+      </h3>
+      <?php
+            }
+      ?>
     </div>
     <!--Accordion-->
     <div class="container p-3 ps-10 pe-10">

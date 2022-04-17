@@ -15,7 +15,7 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>CMS | About Mission</title>
+    <title>CMS | Academics Header</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all" />
@@ -239,7 +239,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub active">
+              <li class="has-sub">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-lightbulb-o"></i>About Page</a
                 >
@@ -250,7 +250,7 @@
                   <li>
                     <a href="about_aboutdesc.html">Distance Learning</a>
                   </li>
-                  <li class="active">
+                  <li>
                     <a href="about_mission.html">Mission</a>
                   </li>
                   <li>
@@ -280,12 +280,12 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub">
+              <li class="has-sub active">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-graduation-cap"></i>Academics Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
-                  <li>
+                  <li class="active">
                     <a href="acad_header.html">Header</a>
                   </li>
                   <li>
@@ -389,48 +389,73 @@
                   <!-- DATA TABLE-->
                   <div class="table-responsive m-b-40">
                     <div class="float-left pb-4">
-                      <h3>About | Mission</h3>
+                      <h3>Academics | Header</h3>
+                    </div>
+                    <div class="float-right pb-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#acad_header"
+                      >
+                        Add Image
+                      </button>
                     </div>
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
                           <th>ID</th>
+                          <th>Image</th>
                           <th>Title</th>
-                          <th>Description</th>
                           <th></th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <div class="table-data-feature">
-                            <button
-                              class="item"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              title="Edit"
-                            >
-                              <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <a
-                              href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
-                              onclick="confirm('Are you sure you want delete?');"
-                            >
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from acad_header");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['acad_header_id']; ?></td>
+                          <td>
+                            <img
+                              src="../sample-img/<?php echo $row['acad_header_img']; ?>"
+                            />
+                          </td>
+                          <td><?php echo $row['acad_header_title']; ?></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
                               <button
                                 class="item"
                                 data-toggle="tooltip"
                                 data-placement="top"
-                                title="Delete"
+                                title="Edit"
                               >
-                                <i class="zmdi zmdi-delete"></i>
+                                <i class="zmdi zmdi-edit"></i>
                               </button>
-                            </a>
-                          </div>
-                        </td>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['acad_header_id'];?>&action=del-acadheader"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                          <?php
+                        }
+                        ?>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -443,6 +468,63 @@
 
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="acad_header"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              INSERT ACADEMICS HEADER DETAILS
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="./backend/insert-banner.php?action=add-acadheader"
+              method="POST"
+            >
+              <p>Add Academics Header Details</p>
+              <input
+                class="form-control w-100 mt-2"
+                type="text"
+                placeholder="Title"
+                name="acad_header_title"
+              />
+              <br />
+              <p>Please input image to display.</p>
+              <label class="label">Image</label>
+              <input
+                type="file"
+                name="acad_header_img"
+                class="img-acad-header"
+              />
+              <input type="submit" class="btn btn-primary float-right ml-2" />
+              <button
+                type="button"
+                class="btn btn-secondary float-right"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Jquery JS-->

@@ -15,7 +15,7 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>CMS | About Description</title>
+    <title>CMS | About Mission</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all" />
@@ -245,13 +245,13 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="about_header.html">Header</a>
-                  </li>
-                  <li class="active">
-                    <a href="about_aboutdesc.html">Distance Learning</a>
+                    <a href="about_header.php">Header</a>
                   </li>
                   <li>
-                    <a href="about_mission.html">Mission</a>
+                    <a href="about_aboutdesc.php">Distance Learning</a>
+                  </li>
+                  <li class="active">
+                    <a href="about_mission.php">Mission</a>
                   </li>
                   <li>
                     <a href="about_vision.html">Vision</a>
@@ -389,14 +389,14 @@
                   <!-- DATA TABLE-->
                   <div class="table-responsive m-b-40">
                     <div class="float-left pb-4">
-                      <h3>About | About Distance Learning</h3>
+                      <h3>About | Mission</h3>
                     </div>
                     <div class="float-right pb-4">
                       <button
                         type="button"
                         class="btn btn-info float-right"
                         data-toggle="modal"
-                        data-target="#ha_aboutdesc"
+                        data-target="#about_mis"
                       >
                         Add New
                       </button>
@@ -405,42 +405,53 @@
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Logo</th>
                           <th>Title</th>
                           <th>Description</th>
+                          <th></th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <div class="table-data-feature">
-                            <button
-                              class="item"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              title="Edit"
-                            >
-                              <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <a
-                              href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
-                              onclick="confirm('Are you sure you want delete?');"
-                            >
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from about_mis");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['about_mis_id'];?></td>
+                          <td><?php echo $row['about_mis_title'];?></td>
+                          <td><?php echo $row['about_mis_desc'];?></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
                               <button
                                 class="item"
                                 data-toggle="tooltip"
                                 data-placement="top"
-                                title="Delete"
+                                title="Edit"
                               >
-                                <i class="zmdi zmdi-delete"></i>
+                                <i class="zmdi zmdi-edit"></i>
                               </button>
-                            </a>
-                          </div>
-                        </td>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['about_mis_id'];?>&action=del-aboutmis"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                          <?php
+                               }
+                           ?>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -456,11 +467,11 @@
       </div>
     </div>
     <!-- Modal -->
-    <div class="modal" id="ha_aboutdesc" tabindex="-1" role="dialog">
+    <div class="modal" id="about_mis" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">About Distance Learning Details</h5>
+            <h5 class="modal-title">About Mission Details</h5>
             <button
               type="button"
               class="close"
@@ -471,21 +482,20 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="./backend/update.php" method="POST">
-              <p>Add Distance Learning Informations</p>
+            <form
+              action="./backend/update.php?action=upd-aboutmis"
+              method="POST"
+            >
+              <p>Add Distance Learning Mission Informations</p>
               <input
                 class="form-control w-100 mt-3"
                 type="text"
                 placeholder="Title"
-                name="ha_title"
+                name="about_mis_title"
               />
               <br />
-              <label class="label">Add Logo Image</label>
-              <input type="file" name="ha_logo" class="img-banner" />
-              <br />
-              <br />
               <textarea
-                name="ha_desc"
+                name="about_mis_desc"
                 class="form-control w-100"
                 rows="10"
                 placeholder="Description"

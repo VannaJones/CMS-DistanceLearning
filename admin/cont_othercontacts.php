@@ -15,7 +15,7 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>CMS | Admission Header</title>
+    <title>CMS | Other Contacts</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all" />
@@ -261,12 +261,12 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub active">
+              <li class="has-sub">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-university"></i>Admissions Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
-                  <li class="active">
+                  <li>
                     <a href="adm_header.html">Header</a>
                   </li>
                   <li>
@@ -296,7 +296,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub">
+              <li class="has-sub active">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-phone"></i>Contact Us Page</a
                 >
@@ -310,7 +310,7 @@
                   <li>
                     <a href="#">Vice President's Office</a>
                   </li>
-                  <li>
+                  <li class="active">
                     <a href="#">Other Contacts</a>
                   </li>
                 </ul>
@@ -389,48 +389,69 @@
                   <!-- DATA TABLE-->
                   <div class="table-responsive m-b-40">
                     <div class="float-left pb-4">
-                      <h3>Admission | Header</h3>
+                      <h3>Contacts | Other Contacts</h3>
+                    </div>
+                    <div class="float-right pb-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#cont_other"
+                      >
+                        Add New Contact
+                      </button>
                     </div>
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Image</th>
-                          <th>Title</th>
+                          <th>Name</th>
+                          <th>Contact</th>
                           <th></th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <div class="table-data-feature">
-                            <button
-                              class="item"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              title="Edit"
-                            >
-                              <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <a
-                              href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
-                              onclick="confirm('Are you sure you want delete?');"
-                            >
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from cont_other");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['cont_other_id'];?></td>
+                          <td><?php echo $row['cont_other_name'];?></td>
+                          <td><?php echo $row['cont_other_contact'];?></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
                               <button
                                 class="item"
                                 data-toggle="tooltip"
                                 data-placement="top"
-                                title="Delete"
+                                title="Edit"
                               >
-                                <i class="zmdi zmdi-delete"></i>
+                                <i class="zmdi zmdi-edit"></i>
                               </button>
-                            </a>
-                          </div>
-                        </td>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['cont_other_id'];?>&action=del-contother"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                          <?php
+                        }
+                        ?>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -443,6 +464,54 @@
 
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="cont_other" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Other Contacts Details</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="./backend/update.php?action=upd-contother"
+              method="POST"
+            >
+              <p>Add Other Contact Details</p>
+              <input
+                class="form-control w-100 mt-3"
+                type="text"
+                placeholder="Contact Name"
+                name="cont_other_name"
+              />
+              <br />
+              <input
+                name="cont_other_contact"
+                type="text"
+                class="form-control w-100 mt-1"
+                placeholder="Contact Info"
+              ></input>
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Jquery JS-->

@@ -15,7 +15,7 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>CMS | Academics Header</title>
+    <title>CMS | About Rationale</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all" />
@@ -130,10 +130,10 @@
                     <a href="about_aboutdesc.html">Distance Learning</a>
                   </li>
                   <li>
-                    <a href="#">Mission</a>
+                    <a href="about_mission.php">Mission</a>
                   </li>
                   <li>
-                    <a href="#">Vision</a>
+                    <a href="about_vision.php">Vision</a>
                   </li>
                   <li>
                     <a href="#">Rationale</a>
@@ -239,25 +239,25 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub">
+              <li class="has-sub active">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-lightbulb-o"></i>About Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="about_header.html">Header</a>
+                    <a href="about_header.php">Header</a>
                   </li>
                   <li>
-                    <a href="about_aboutdesc.html">Distance Learning</a>
+                    <a href="about_aboutdesc.php">Distance Learning</a>
                   </li>
                   <li>
-                    <a href="about_mission.html">Mission</a>
+                    <a href="about_mission.php">Mission</a>
                   </li>
                   <li>
-                    <a href="about_vision.html">Vision</a>
+                    <a href="about_vision.php">Vision</a>
                   </li>
-                  <li>
-                    <a href="about_rationale.html">Rationale</a>
+                  <li class="active">
+                    <a href="about_rationale.php">Rationale</a>
                   </li>
                 </ul>
               </li>
@@ -280,12 +280,12 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub active">
+              <li class="has-sub">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-graduation-cap"></i>Academics Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
-                  <li class="active">
+                  <li>
                     <a href="acad_header.html">Header</a>
                   </li>
                   <li>
@@ -389,48 +389,69 @@
                   <!-- DATA TABLE-->
                   <div class="table-responsive m-b-40">
                     <div class="float-left pb-4">
-                      <h3>Academics | Header</h3>
+                      <h3>About | Rationale</h3>
+                    </div>
+                    <div class="float-right pb-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#about_rat"
+                      >
+                        Add New
+                      </button>
                     </div>
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Image</th>
                           <th>Title</th>
+                          <th>Description</th>
                           <th></th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <div class="table-data-feature">
-                            <button
-                              class="item"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              title="Edit"
-                            >
-                              <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <a
-                              href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
-                              onclick="confirm('Are you sure you want delete?');"
-                            >
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from about_rat");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['about_rat_id'];?></td>
+                          <td><?php echo $row['about_rat_title'];?></td>
+                          <td><?php echo $row['about_rat_desc'];?></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
                               <button
                                 class="item"
                                 data-toggle="tooltip"
                                 data-placement="top"
-                                title="Delete"
+                                title="Edit"
                               >
-                                <i class="zmdi zmdi-delete"></i>
+                                <i class="zmdi zmdi-edit"></i>
                               </button>
-                            </a>
-                          </div>
-                        </td>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['about_rat_id'];?>&action=del-aboutrat"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                          <?php
+                               }
+                           ?>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -443,6 +464,54 @@
 
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="about_rat" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">About Rationale Details</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="./backend/update.php?action=upd-aboutrat"
+              method="POST"
+            >
+              <p>Add Distance Learning Rationale Informations</p>
+              <input
+                class="form-control w-100 mt-3"
+                type="text"
+                placeholder="Title"
+                name="about_rat_title"
+              />
+              <br />
+              <textarea
+                name="about_rat_desc"
+                class="form-control w-100"
+                rows="10"
+                placeholder="Description"
+              ></textarea>
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Jquery JS-->

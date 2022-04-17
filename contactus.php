@@ -1,3 +1,6 @@
+<?php
+    include ('./dbconnect/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -154,21 +157,22 @@
         <b>Other Contacts</b>
       </h4>
     </div>
-    <!--Sub Contacts-->
+    <!--Other Contacts-->
     <div class="container justify-content-center pt-3">
       <table class="table table-bordered border-primary">
+                                  <?php
+                                      $query=mysqli_query($con,"select * from cont_other");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
         <tr>
-          <th colspan="5">Alumni and Placement Office</th>
-          <th><i class="fa fa-phone"></i>&nbsp;992-4620</th>
+          <th colspan="5"><?php echo $row['cont_other_name'];?></th>
+          <th><i class="fa fa-phone"></i>&nbsp;<?php echo $row['cont_other_contact'];?></th>
         </tr>
-        <tr>
-          <th colspan="5">ANEC Office</th>
-          <th><i class="fa fa-phone"></i>&nbsp;991-0923</th>
-        </tr>
-        <tr>
-          <th colspan="5">Budget & PPL Office</th>
-          <th><i class="fa fa-phone"></i>&nbsp;992-2677</th>
-        </tr>
+                                  <?php
+      }
+      ?>
       </table>
     </div>
     <!--Footer-->
