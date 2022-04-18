@@ -425,6 +425,8 @@
                           <td><?php echo $row['ha_desc'];?></td>
                           <td>
                             <div class="table-data-feature">
+                              <a
+                              href="edit_post/edit_home_about.php?id=<?php echo $row['ha_id'];?>&action=edit-habout">
                               <button
                                 class="item"
                                 data-toggle="tooltip"
@@ -433,6 +435,7 @@
                               >
                                 <i class="zmdi zmdi-edit"></i>
                               </button>
+                                      </a>
                               <a
                                 href="./backend/delete.php?id=<?php echo $row['ha_id'];?>&action=del-habout"
                                 onclick="confirm('Are you sure you want delete?');"

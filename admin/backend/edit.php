@@ -25,11 +25,11 @@ if($_GET['action']=='edit-habout'){
     $ha_newdesc = $_POST['ha_newdesc'];
 
 
-    $sql = "update home_about set ha_title='$ha_newtitle', ha_subtitle='$ha_newsubtitle' where about_mis_id=$id";
+    $sql = "update home_about set ha_title='$ha_newtitle', ha_subtitle='$ha_newsubtitle', ha_desc='$ha_newdesc' where ha_id=$id";
     $result=mysqli_query($con,$sql);
 
     if($result){
-       header("location:../about_mission.php");
+       header("location:../home_about.php");
     }else {
         echo "Failed";
     }

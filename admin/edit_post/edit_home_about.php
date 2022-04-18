@@ -396,15 +396,15 @@
                 <div class="col-md-12">
                   <!-- DATA TABLE-->
                   <div class="float-left">
-                    <h3>Edit | About | Mission</h3>
+                    <h3>Edit | Home | About</h3>
                   </div>
                   <br /><br />
                   <form
-                    action="../backend/edit.php?id=<?php echo $id;?>&action=edit-aboutmis"
+                    action="../backend/edit.php?id=<?php echo $id;?>&action=edit-habout"
                     method="POST"
                   >
                     <?php
-                                      $query=mysqli_query($con,"SELECT * from about_mis where about_mis_id=$id;");
+                                      $query=mysqli_query($con,"SELECT * from home_about where ha_id=$id;");
                                       while($row=mysqli_fetch_assoc($query))
                                       {
                                     ?>
@@ -412,22 +412,22 @@
                       <label for="exampleFormControlInput1">Title</label>
                       <input
                         Required
-                        name="about_mis_newtitle"
+                        name="ha_newtitle"
                         type="text"
                         class="form-control"
                         id="exampleFormControlInput1"
-                        value="<?php echo $row['about_mis_title'];?>"
+                        value="<?php echo $row['ha_title'];?>"
                       />
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Sub-Title</label>
                       <input
                         Required
-                        name="about_mis_newtitle"
+                        name="ha_newsubtitle"
                         type="text"
                         class="form-control"
                         id="exampleFormControlInput1"
-                        value="<?php echo $row['about_mis_title'];?>"
+                        value="<?php echo $row['ha_subtitle'];?>"
                       />
                     </div>
                     <div class="form-group">
@@ -437,11 +437,11 @@
                       <textarea
                         Required
                         class="form-control"
-                        name="about_mis_newdesc"
+                        name="ha_newdesc"
                         
                         id="exampleFormControlTextarea1"
                         rows="5"
-                      ><?php echo $row['about_mis_desc'];?></textarea>
+                      ><?php echo $row['ha_desc'];?></textarea>
                     </div>
                     <input
                       type="submit"
