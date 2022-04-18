@@ -1,5 +1,6 @@
 <?php
-  include ('../dbconnect/connection.php');
+  include ('../../dbconnect/connection.php');
+  $id=$_GET['id'];
 ?>
 
 <html lang="en">
@@ -18,57 +19,61 @@
     <title>CMS | About Mission</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all" />
+    <link href="../css/font-face.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/font-awesome-4.7/css/font-awesome.min.css"
+      href="../vendor/font-awesome-4.7/css/font-awesome.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/font-awesome-5/css/fontawesome-all.min.css"
+      href="../vendor/font-awesome-5/css/fontawesome-all.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/mdi-font/css/material-design-iconic-font.min.css"
+      href="../vendor/mdi-font/css/material-design-iconic-font.min.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Bootstrap CSS-->
     <link
-      href="vendor/bootstrap-4.1/bootstrap.min.css"
+      href="../vendor/bootstrap-4.1/bootstrap.min.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Vendor CSS-->
     <link
-      href="vendor/animsition/animsition.min.css"
+      href="../vendor/animsition/animsition.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
+      href="../vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
       rel="stylesheet"
       media="all"
     />
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all" />
+    <link href="../vendor/wow/animate.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/css-hamburgers/hamburgers.min.css"
+      href="../vendor/css-hamburgers/hamburgers.min.css"
       rel="stylesheet"
       media="all"
     />
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all" />
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all" />
+    <link href="../vendor/slick/slick.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/perfect-scrollbar/perfect-scrollbar.css"
+      href="../vendor/select2/select2.min.css"
+      rel="stylesheet"
+      media="all"
+    />
+    <link
+      href="../vendor/perfect-scrollbar/perfect-scrollbar.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all" />
+    <link href="../css/theme.css" rel="stylesheet" media="all" />
 
     <!-- Logo Title-->
     <link rel="icon" type="image/png" href="../sample-img/logo.png" />
@@ -210,7 +215,7 @@
       <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
           <a href="#">
-            <img src="images/icon/WMSU-DL.png" alt="Cool Admin" />
+            <img src="../images/icon/WMSU-DL.png" alt="Cool Admin" />
           </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
@@ -338,7 +343,10 @@
                   <div class="account-wrap">
                     <div class="account-item clearfix js-item-menu">
                       <div class="image">
-                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                        <img
+                          src="../images/icon/avatar-01.jpg"
+                          alt="John Doe"
+                        />
                       </div>
                       <div class="content">
                         <a class="js-acc-btn" href="#">john doe</a>
@@ -348,7 +356,7 @@
                           <div class="image">
                             <a href="#">
                               <img
-                                src="images/icon/avatar-01.jpg"
+                                src="../images/icon/avatar-01.jpg"
                                 alt="John Doe"
                               />
                             </a>
@@ -387,77 +395,71 @@
               <div class="row m-t-10">
                 <div class="col-md-12">
                   <!-- DATA TABLE-->
-                  <div class="table-responsive m-b-40">
-                    <div class="float-left pb-4">
-                      <h3>About | Mission</h3>
-                    </div>
-                    <div class="float-right pb-4">
-                      <button
-                        type="button"
-                        class="btn btn-info float-right"
-                        data-toggle="modal"
-                        data-target="#about_mis"
-                      >
-                        Add New
-                      </button>
-                    </div>
-                    <table class="table table-borderless table-data3">
-                      <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Title</th>
-                          <th>Description</th>
-                          <th></th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-                                     require ('../dbconnect/connection.php');
-                                      $query=mysqli_query($con,"SELECT * from about_mis");
-                                      while($row=mysqli_fetch_array($query))
+                  <div class="float-left">
+                    <h3>Edit | About | Mission</h3>
+                  </div>
+                  <br /><br />
+                  <form
+                    action="../backend/edit.php?id=<?php echo $id;?>&action=edit-aboutmis"
+                    method="POST"
+                  >
+                    <?php
+                                      $query=mysqli_query($con,"SELECT * from about_mis where about_mis_id=$id;");
+                                      while($row=mysqli_fetch_assoc($query))
                                       {
                                     ?>
-                        <tr>
-                          <td><?php echo $row['about_mis_id'];?></td>
-                          <td><?php echo $row['about_mis_title'];?></td>
-                          <td><?php echo $row['about_mis_desc'];?></td>
-                          <td></td>
-                          <td>
-                            <div class="table-data-feature">
-                              <a
-                              href="edit_post/edit_about_mis.php?id=<?php echo $row['about_mis_id'];?>&action=edit-aboutmis">
-                              <button
-                                class="item"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Edit"
-                              >
-                                <i class="zmdi zmdi-edit"></i>
-                              </button>
-                                      </a>
-                              <a
-                                href="./backend/delete.php?id=<?php echo $row['about_mis_id'];?>&action=del-aboutmis"
-                                onclick="confirm('Are you sure you want delete?');"
-                              >
-                                <button
-                                  class="item"
-                                  data-toggle="tooltip"
-                                  data-placement="top"
-                                  title="Delete"
-                                >
-                                  <i class="zmdi zmdi-delete"></i>
-                                </button>
-                              </a>
-                            </div>
-                          </td>
-                          <?php
-                               }
-                           ?>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Title</label>
+                      <input
+                        Required
+                        name="about_mis_newtitle"
+                        type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        value="<?php echo $row['about_mis_title'];?>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Sub-Title</label>
+                      <input
+                        Required
+                        name="about_mis_newtitle"
+                        type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        value="<?php echo $row['about_mis_title'];?>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1"
+                        >Description</label
+                      >
+                      <textarea
+                        Required
+                        class="form-control"
+                        name="about_mis_newdesc"
+                        
+                        id="exampleFormControlTextarea1"
+                        rows="5"
+                      ><?php echo $row['about_mis_desc'];?></textarea>
+                    </div>
+                    <input
+                      type="submit"
+                      class="btn btn-primary"
+                      value="Update"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <?php
+                }
+                ?>
+                  </form>
+
                   <!-- END DATA TABLE-->
                 </div>
               </div>
@@ -467,54 +469,6 @@
 
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
-      </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal" id="about_mis" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">About Mission Details</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form
-              action="./backend/update.php?action=upd-aboutmis"
-              method="POST"
-            >
-              <p>Add Distance Learning Mission Informations</p>
-              <input
-                class="form-control w-100 mt-3"
-                type="text"
-                placeholder="Title"
-                name="about_mis_title"
-              />
-              <br />
-              <textarea
-                name="about_mis_desc"
-                class="form-control w-100"
-                rows="10"
-                placeholder="Description"
-              ></textarea>
-              <br />
-              <input type="submit" class="btn btn-primary" value="Update" />
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Cancel
-              </button>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
     <!-- Jquery JS-->
