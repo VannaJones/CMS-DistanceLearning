@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+  include ('../../dbconnect/connection.php');
+  $id=$_GET['id'];
+?>
+
 <html lang="en">
   <head>
     <!-- Required meta tags-->
@@ -12,60 +16,64 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>CMS | Dashboard</title>
+    <title>CMS | About Mission</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all" />
+    <link href="../css/font-face.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/font-awesome-4.7/css/font-awesome.min.css"
+      href="../vendor/font-awesome-4.7/css/font-awesome.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/font-awesome-5/css/fontawesome-all.min.css"
+      href="../vendor/font-awesome-5/css/fontawesome-all.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/mdi-font/css/material-design-iconic-font.min.css"
+      href="../vendor/mdi-font/css/material-design-iconic-font.min.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Bootstrap CSS-->
     <link
-      href="vendor/bootstrap-4.1/bootstrap.min.css"
+      href="../vendor/bootstrap-4.1/bootstrap.min.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Vendor CSS-->
     <link
-      href="vendor/animsition/animsition.min.css"
+      href="../vendor/animsition/animsition.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
+      href="../vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
       rel="stylesheet"
       media="all"
     />
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all" />
+    <link href="../vendor/wow/animate.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/css-hamburgers/hamburgers.min.css"
+      href="../vendor/css-hamburgers/hamburgers.min.css"
       rel="stylesheet"
       media="all"
     />
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all" />
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all" />
+    <link href="../vendor/slick/slick.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/perfect-scrollbar/perfect-scrollbar.css"
+      href="../vendor/select2/select2.min.css"
+      rel="stylesheet"
+      media="all"
+    />
+    <link
+      href="../vendor/perfect-scrollbar/perfect-scrollbar.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all" />
+    <link href="../css/theme.css" rel="stylesheet" media="all" />
 
     <!-- Logo Title-->
     <link rel="icon" type="image/png" href="../sample-img/logo.png" />
@@ -207,13 +215,13 @@
       <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
           <a href="#">
-            <img src="images/icon/WMSU-DL.png" alt="Cool Admin" />
+            <img src="../images/icon/WMSU-DL.png" alt="Cool Admin" />
           </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-              <li class="active">
+              <li>
                 <a href="admin_index.html">
                   <i class="fas fa-desktop"></i>Dashboard</a
                 >
@@ -224,19 +232,19 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="home_banner.php">Home Banner</a>
+                    <a href="home_banner.html">Home Banner</a>
                   </li>
                   <li>
-                    <a href="home_about.php">Home About</a>
+                    <a href="home_about.html">Home About</a>
                   </li>
                   <li>
-                    <a href="home_programs_offered.php"
+                    <a href="home_programs_offered.html"
                       >Home Programs Offered</a
                     >
                   </li>
                 </ul>
               </li>
-              <li class="has-sub">
+              <li class="has-sub active">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-lightbulb-o"></i>About Page</a
                 >
@@ -247,7 +255,7 @@
                   <li>
                     <a href="about_aboutdesc.php">Distance Learning</a>
                   </li>
-                  <li>
+                  <li class="active">
                     <a href="about_mission.php">Mission</a>
                   </li>
                   <li>
@@ -316,9 +324,7 @@
                 <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="../index.php">
-                  <i class="fas fa-globe"></i>View Website</a
-                >
+                <a href="#"> <i class="fas fa-globe"></i>View Website</a>
               </li>
             </ul>
           </nav>
@@ -337,7 +343,10 @@
                   <div class="account-wrap">
                     <div class="account-item clearfix js-item-menu">
                       <div class="image">
-                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                        <img
+                          src="../images/icon/avatar-01.jpg"
+                          alt="John Doe"
+                        />
                       </div>
                       <div class="content">
                         <a class="js-acc-btn" href="#">john doe</a>
@@ -347,7 +356,7 @@
                           <div class="image">
                             <a href="#">
                               <img
-                                src="images/icon/avatar-01.jpg"
+                                src="../images/icon/avatar-01.jpg"
                                 alt="John Doe"
                               />
                             </a>
@@ -356,7 +365,7 @@
                             <h5 class="name">
                               <a href="#">john doe</a>
                             </h5>
-                            <span class="email">johndoe@wmsu.edu.ph</span>
+                            <span class="email">johndoe@example.com</span>
                           </div>
                         </div>
                         <div class="account-dropdown__body">
@@ -383,140 +392,75 @@
         <div class="main-content">
           <div class="section__content section__content--p30">
             <div class="container-fluid">
-              <div class="row">
+              <div class="row m-t-10">
                 <div class="col-md-12">
-                  <div class="overview-wrap">
-                    <h2 class="title-1">overview</h2>
+                  <!-- DATA TABLE-->
+                  <div class="float-left">
+                    <h3>Edit | About | Distance Learning</h3>
                   </div>
-                </div>
-              </div>
-              <!-- First row of overview -->
-              <div class="row m-t-25">
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-home"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Home Page</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart row p-t-5">
-                        <div class="col-md-8">
-                          <!-- <h4 style="color: white">Banner Images</h4>
-                          <h4 style="color: white">Home About</h4>
-                          <h4 style="color: white">Home Programs Offered</h4> -->
-                        </div>
-                        <div class="col-md-4 text-center">
-                          <!-- <h4 style="color: white">8</h4>
-                          <h4 style="color: white">Text</h4>
-                          <h4 style="color: white">2</h4> -->
-                        </div>
-                      </div>
+                  <br /><br />
+                  <form
+                    action="../backend/edit.php?id=<?php echo $id;?>&action=edit-about_dl_desc"
+                    method="POST"
+                  >
+                    <?php
+                    $query=mysqli_query($con,"SELECT * from about_dldesc where about_dl_id=$id;");
+                    while($row=mysqli_fetch_assoc($query))
+                    {
+                    ?>
+                    <div class="form-group">
+                    <p>Add Distance Learning Informations</p>
+                      <label for="exampleFormControlInput1">Title</label>
+                      <input
+                        Required
+                        name="about_dl_newtitle"
+                        type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        value="<?php echo $row['about_dl_title'];?>"
+                      />
                     </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-question-circle"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">About Page</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart">
-                        <!-- <canvas id="widgetChart2"></canvas> -->
-                      </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1"
+                        >Description</label
+                      >
+                      <textarea
+                        Required
+                        class="form-control"
+                        name="about_dl_newdesc"
+                        
+                        id="exampleFormControlTextarea1"
+                        rows="5"
+                      ><?php echo $row['about_dl_desc'];?></textarea>
                     </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-university"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Admission</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart">
-                        <!-- <canvas id="widgetChart2"></canvas> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Second Row of Overview -->
-              <div class="row m-t-4">
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-graduation-cap"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Academics</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart">
-                        <!-- <canvas id="widgetChart1"></canvas> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Contact Us</h3>
-                          <span>Numbers of Post</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="overview-item gradcolor">
-                    <div class="overview__inner">
-                      <div class="overview-box clearfix">
-                        <div class="icon">
-                          <i class="fa fa-clipboard"></i>
-                        </div>
-                        <div class="text">
-                          <h3 style="color: white">Drafts</h3>
-                          <span>Saved Works</span>
-                        </div>
-                      </div>
-                      <div class="overview-chart"></div>
-                    </div>
-                  </div>
+                    <input
+                      type="submit"
+                      class="btn btn-primary"
+                      value="Update"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <?php
+                }
+                ?>
+                  </form>
+
+                  <!-- END DATA TABLE-->
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
       </div>
     </div>
-
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->

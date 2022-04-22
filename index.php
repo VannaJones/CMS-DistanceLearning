@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -33,7 +33,6 @@
     <div class="col top">
       <div class="topnav container">
         <a href="https://wmsulibrary.wordpress.com/">eLibrary</a>
-        <a href="about.html">Faculty Portal</a>
         <a href="http://wmsu.edu.ph/">Student Portal</a>
       </div>
     </div>
@@ -43,22 +42,22 @@
       <div class="secnav container py-2">
         <img src="./sample-img/WMSU-DL.png" height="75px" class="float-start" />
         <div class="d-flex align-items-center justify-content-end py-2">
-          <a class="active list" href="index.html">
+          <a class="active list" href="index.php">
             <i class="fa fa-home"></i> HOME</a
           >
-          <a href="about.html" class="list">
+          <a href="about.php" class="list">
             <i class="fa fa-lightbulb-o"></i> ABOUT</a
           >
-          <a href="admissions.html" class="list">
+          <a href="admissions.php" class="list">
             <i class="fa fa-university"></i> ADMISSIONS</a
           >
-          <a href="academics.html" class="list">
+          <a href="academics.php" class="list">
             <i class="fa fa-graduation-cap"></i> ACADEMICS</a
           >
-          <a href="contactus.html" class="list">
+          <a href="contactus.php" class="list">
             <i class="fa fa-phone"></i> CONTACT US</a
           >
-          <a class="btn btn-primary btn-lg" href="#" role="button">
+          <a class="btn btn-danger btn-lg" href="http://wmsu-distance-edu-app.online" role="button">
             Apply Now
           </a>
         </div>
@@ -154,7 +153,7 @@
     </div>
     <!--Programs Offered Title-->
     <div class="p-3 mt-2 justify-content-center text-center" style="height: auto;">
-      <button type="button" class="btn btn-primary btn-lg">Master Degree Programs Offered</button>
+      <button type="button" class="btn btn-danger btn-lg">Master Degree Programs Offered</button>
     </div>
     <!--Programs Offered-->
     <div class="p-3 h-auto">
@@ -162,41 +161,22 @@
         <div class="col-auto mt-3">
           <img src="./sample-img/logo.png" style="height: 250px;">
           <h3 class="pt-3">College of Education</h3>
-                      <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Programs Offered
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Education Major in Special Education</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Education Major in Guidance and
-                    Counseling</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Education Major in Educational
-                    Administration</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Education Major in Early Childhood Study
-                    and Development</a
-                  >
-                </li>
-              </ul>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Masters Degree Offers
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <a href="#"><h6>Master of Arts in Education Major in Special Education</h6></a>
+                    <a href="#"><h6>Master of Arts in Education Major in Special Education</h6></a>
+                    <a href="#"><h6>Master of Arts in Education Major in Special Education</h6></a>
+                    <a href="#"><h6>Master of Arts in Education Major in Special Education</h6></a>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
         <div class="col-auto mt-3">
@@ -227,72 +207,21 @@
                 <li>
                   <a class="dropdown-item" href="#"
                     >Master of Arts in Nursing Major in Certified Nurse
-                    Midwife</a
+                     Midwife</a
                   >
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"
                     >Master of Arts in Nursing Major in Public Health</a
-                  >
+                 >
                 </li>
               </ul>
             </div>
         </div>
       </div>
     </div>
-    <!--Footer-->
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="footer-col">
-            <h3>Western Mindanao <br />State University</h3>
-            <b>Normal Road, <br />7000 Zamboanga City<br />Philippines</b>
-            <a class="pt-2" href="index.html"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-home"></i> Home</button></a>
-          </div>
-          <div class="footer-col">
-            <h4>Programs</h4>
-            <ul>
-              <li><a href="academics.html#CTE">College of Education</a></li>
-              <li><a href="academics.html#CN">College of Nursing</a></li>
-            </ul>
-            <h4><br />Admission</h4>
-            <ul>
-              <li>
-                <a href="admissions.html#admin-req">Requirements</a>
-              </li>
-              <li>
-                <a href="admissions.html#admin-req">Enrolment Procedure</a>
-              </li>
-              <li><a href="admissions.html#admin-req">Terms and Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>About Us</h4>
-            <ul>
-              <li><a href="about.html#wmsu-dl">WMSU Distance Learning</a></li>
-              <li><a href="about.html#wmsu-vis">Vision</a></li>
-              <li><a href="about.html#wmsu-mis">Mission</a></li>
-              <li><a href="about.html#wmsu-rat">Rationale/History</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Links</h4>
-            <ul>
-              <li><a href="#">News and Announcements</a></li>
-              <li><a href="#">Administration</a></li>
-              <li><a href="contactus.html">Contact Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Follow us</h4>
-            <div class="social-links">
-              <a href="#"><i class="fa fa-facebook-f"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <?php
+    include ('footer.php');
+    ?>
   </body>
 </html>

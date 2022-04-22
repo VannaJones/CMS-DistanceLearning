@@ -8,6 +8,11 @@ body {
   height: 100vh;
   background: #ffffff;
 }
+.btn-danger {
+  color: #ffffff;
+  background-color: #a20202;
+  border-color: #a20202;
+}
 .bg-login {
   background-image: url("./sample-img/wmsu_gate3.jpg");
   height: 100%;
@@ -17,7 +22,7 @@ body {
 }
 .topnav,
 .top {
-  background-color: #1c62b0;
+  background-color: #a20202;
   overflow: hidden;
 }
 .topnav a {
@@ -33,7 +38,7 @@ body {
   color: black;
 }
 .topnav a.active {
-  background-color: #1c62b0;
+  background-color: #a20202;
   color: #f2f2f2;
 }
 .secnav,
@@ -50,13 +55,13 @@ body {
 }
 .secnav .list:hover {
   text-decoration: none;
-  border-bottom: 2px solid #1c62b0;
-  color: #1c62b0;
+  border-bottom: 2px solid #a20202;
+  color: #a20202;
 }
 .secnav a.active {
-  color: #1c62b0;
+  color: #a20202;
   text-decoration: none;
-  border-bottom: 2px solid #1c62b0;
+  border-bottom: 2px solid #a20202;
 }
 .carousel-item {
   height: 500px;
@@ -76,7 +81,7 @@ ul {
   list-style: none;
 }
 .footer {
-  background-color: #1c62b0;
+  background-color: #a20202;
   padding: 70px 0;
 }
 .footer-col {

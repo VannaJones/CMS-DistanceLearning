@@ -1,7 +1,4 @@
-<?php
-  include ('../dbconnect/connection.php');
-?>
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags-->
@@ -15,7 +12,7 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>CMS | Home Programs Offered</title>
+    <title>CMS | Dashboard</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all" />
@@ -92,12 +89,12 @@
         <div class="menu-sidebar__content js-scrollbar1">
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-              <li>
+              <li class="active">
                 <a href="admin_index.php">
                   <i class="fas fa-desktop"></i>Dashboard</a
                 >
               </li>
-              <li class="has-sub active">
+              <li class="has-sub">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-home"></i>Home Page</a
                 >
@@ -108,7 +105,7 @@
                   <li>
                     <a href="home_about.php">Home About</a>
                   </li>
-                  <li class="active">
+                  <li>
                     <a href="home_programs_offered.php"
                       >Home Programs Offered</a
                     >
@@ -187,7 +184,7 @@
                     <a href="cont_vicepres.php">Vice President's Office</a>
                   </li>
                   <li>
-                    <a href="cont_othercontancts.php">Other Contacts</a>
+                    <a href="cont_othercontacts.php">Other Contacts</a>
                   </li>
                 </ul>
               </li>
@@ -195,7 +192,9 @@
                 <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="../index.php"> <i class="fas fa-globe"></i>View Website</a>
+                <a href="../index.php">
+                  <i class="fas fa-globe"></i>View Website</a
+                >
               </li>
             </ul>
           </nav>
@@ -213,145 +212,140 @@
         <div class="main-content">
           <div class="section__content section__content--p30">
             <div class="container-fluid">
-              <div class="row m-t-10">
+              <div class="row">
                 <div class="col-md-12">
-                  <!-- DATA TABLE-->
-                  <div class="table-responsive m-b-40">
-                    <div class="float-left pb-4">
-                      <h3>Home | Programs Offered</h3>
-                    </div>
-                    <div class="float-right pb-4">
-                      <button
-                        type="button"
-                        class="btn btn-info float-right"
-                        data-toggle="modal"
-                        data-target="#hpo_progoff"
-                      >
-                        Add New
-                      </button>
-                    </div>
-
-                    <table class="table table-borderless table-data3">
-                      <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Title</th>
-                          <th>Logo</th>
-                          <th>Programs Offered</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-                                     require ('../dbconnect/connection.php');
-                                      $query=mysqli_query($con,"SELECT * from home_progoff");
-                                      while($row=mysqli_fetch_array($query))
-                                      {
-                                    ?>
-                        <tr>
-                          <td><?php echo $row['hpo_id'];?></td>
-                          <td><?php echo $row['hpo_title'];?></td>
-                          <td><?php echo $row['hpo_logo'];?></td>
-                          <td><?php echo $row['hpo_progoff'];?></td>
-                          <td>
-                            <div class="table-data-feature">
-                              <button
-                                class="item"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Edit"
-                              >
-                                <i class="zmdi zmdi-edit"></i>
-                              </button>
-                              <a
-                                href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
-                                onclick="confirm('Are you sure you want delete?');"
-                              >
-                                <button
-                                  class="item"
-                                  data-toggle="tooltip"
-                                  data-placement="top"
-                                  title="Delete"
-                                >
-                                  <i class="zmdi zmdi-delete"></i>
-                                </button>
-                              </a>
-                            </div>
-                          </td>
-                          <?php
-                                      }
-                                      ?>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div class="overview-wrap">
+                    <h2 class="title-1">overview</h2>
                   </div>
-                  <!-- END DATA TABLE-->
+                </div>
+              </div>
+              <!-- First row of overview -->
+              <div class="row m-t-25">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="overview-item gradcolor">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="icon">
+                          <i class="fa fa-home"></i>
+                        </div>
+                        <div class="text">
+                          <h3 style="color: white">Home Page</h3>
+                          <span>Numbers of Post</span>
+                        </div>
+                      </div>
+                      <div class="overview-chart row p-t-5">
+                        <div class="col-md-8">
+                          <!-- <h4 style="color: white">Banner Images</h4>
+                          <h4 style="color: white">Home About</h4>
+                          <h4 style="color: white">Home Programs Offered</h4> -->
+                        </div>
+                        <div class="col-md-4 text-center">
+                          <!-- <h4 style="color: white">8</h4>
+                          <h4 style="color: white">Text</h4>
+                          <h4 style="color: white">2</h4> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="overview-item gradcolor">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="icon">
+                          <i class="fa fa-question-circle"></i>
+                        </div>
+                        <div class="text">
+                          <h3 style="color: white">About Page</h3>
+                          <span>Numbers of Post</span>
+                        </div>
+                      </div>
+                      <div class="overview-chart">
+                        <!-- <canvas id="widgetChart2"></canvas> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="overview-item gradcolor">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="icon">
+                          <i class="fa fa-university"></i>
+                        </div>
+                        <div class="text">
+                          <h3 style="color: white">Admission</h3>
+                          <span>Numbers of Post</span>
+                        </div>
+                      </div>
+                      <div class="overview-chart">
+                        <!-- <canvas id="widgetChart2"></canvas> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second Row of Overview -->
+              <div class="row m-t-4">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="overview-item gradcolor">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="icon">
+                          <i class="fa fa-graduation-cap"></i>
+                        </div>
+                        <div class="text">
+                          <h3 style="color: white">Academics</h3>
+                          <span>Numbers of Post</span>
+                        </div>
+                      </div>
+                      <div class="overview-chart">
+                        <!-- <canvas id="widgetChart1"></canvas> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="overview-item gradcolor">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="icon">
+                          <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="text">
+                          <h3 style="color: white">Contact Us</h3>
+                          <span>Numbers of Post</span>
+                        </div>
+                      </div>
+                      <div class="overview-chart"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="overview-item gradcolor">
+                    <div class="overview__inner">
+                      <div class="overview-box clearfix">
+                        <div class="icon">
+                          <i class="fa fa-clipboard"></i>
+                        </div>
+                        <div class="text">
+                          <h3 style="color: white">Drafts</h3>
+                          <span>Saved Works</span>
+                        </div>
+                      </div>
+                      <div class="overview-chart"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
       </div>
     </div>
-        <!-- Modal -->
-    <div class="modal" id="hpo_progoff" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Home Programs Offered Details</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form action="./backend/update.php" method="POST">
-              <p>Add Program</p>
-              <input
-                class="form-control w-100 mt-3"
-                type="text"
-                placeholder="Title"
-                name="hpo_title"
-              />
-              <br />
-              <label class="label">Add Logo Image</label>
-              <input type="file" name="hpo_logo" class="img-banner" />
-              <br />
-              <br />
-              <input
-                class="form-control w-100"
-                type="text"
-                placeholder="Sub Title"
-                name="ha_subtitle"
-              />
-              <br />
-              <textarea
-                name="ha_desc"
-                class="form-control w-100"
-                rows="10"
-                placeholder="Description"
-              ></textarea>
-              <br />
-              <input type="submit" class="btn btn-primary" value="Update" />
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Cancel
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->

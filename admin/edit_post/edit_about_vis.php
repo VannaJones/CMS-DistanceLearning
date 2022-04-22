@@ -1,5 +1,6 @@
 <?php
-  include ('../dbconnect/connection.php');
+  include ('../../dbconnect/connection.php');
+  $id=$_GET['id'];
 ?>
 
 <html lang="en">
@@ -15,60 +16,64 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title>CMS | Academics College of Education</title>
+    <title>CMS | About Mission</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all" />
+    <link href="../css/font-face.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/font-awesome-4.7/css/font-awesome.min.css"
+      href="../vendor/font-awesome-4.7/css/font-awesome.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/font-awesome-5/css/fontawesome-all.min.css"
+      href="../vendor/font-awesome-5/css/fontawesome-all.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/mdi-font/css/material-design-iconic-font.min.css"
+      href="../vendor/mdi-font/css/material-design-iconic-font.min.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Bootstrap CSS-->
     <link
-      href="vendor/bootstrap-4.1/bootstrap.min.css"
+      href="../vendor/bootstrap-4.1/bootstrap.min.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Vendor CSS-->
     <link
-      href="vendor/animsition/animsition.min.css"
+      href="../vendor/animsition/animsition.min.css"
       rel="stylesheet"
       media="all"
     />
     <link
-      href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
+      href="../vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css"
       rel="stylesheet"
       media="all"
     />
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all" />
+    <link href="../vendor/wow/animate.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/css-hamburgers/hamburgers.min.css"
+      href="../vendor/css-hamburgers/hamburgers.min.css"
       rel="stylesheet"
       media="all"
     />
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all" />
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all" />
+    <link href="../vendor/slick/slick.css" rel="stylesheet" media="all" />
     <link
-      href="vendor/perfect-scrollbar/perfect-scrollbar.css"
+      href="../vendor/select2/select2.min.css"
+      rel="stylesheet"
+      media="all"
+    />
+    <link
+      href="../vendor/perfect-scrollbar/perfect-scrollbar.css"
       rel="stylesheet"
       media="all"
     />
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all" />
+    <link href="../css/theme.css" rel="stylesheet" media="all" />
 
     <!-- Logo Title-->
     <link rel="icon" type="image/png" href="../sample-img/logo.png" />
@@ -210,7 +215,7 @@
       <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
           <a href="#">
-            <img src="images/icon/WMSU-DL.png" alt="Cool Admin" />
+            <img src="../images/icon/WMSU-DL.png" alt="Cool Admin" />
           </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
@@ -239,19 +244,19 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub">
+              <li class="has-sub active">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-lightbulb-o"></i>About Page</a
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="about_header.html">Header</a>
+                    <a href="about_header.php">Header</a>
                   </li>
                   <li>
-                    <a href="about_aboutdesc.html">Distance Learning</a>
+                    <a href="about_aboutdesc.php">Distance Learning</a>
                   </li>
-                  <li>
-                    <a href="about_mission.html">Mission</a>
+                  <li class="active">
+                    <a href="about_mission.php">Mission</a>
                   </li>
                   <li>
                     <a href="about_vision.html">Vision</a>
@@ -280,7 +285,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="has-sub active">
+              <li class="has-sub">
                 <a class="js-arrow" href="#">
                   <i class="fas fa-graduation-cap"></i>Academics Page</a
                 >
@@ -288,7 +293,7 @@
                   <li>
                     <a href="acad_header.html">Header</a>
                   </li>
-                  <li class="active">
+                  <li>
                     <a href="acad_education.html">College of Education</a>
                   </li>
                   <li>
@@ -338,7 +343,10 @@
                   <div class="account-wrap">
                     <div class="account-item clearfix js-item-menu">
                       <div class="image">
-                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                        <img
+                          src="../images/icon/avatar-01.jpg"
+                          alt="John Doe"
+                        />
                       </div>
                       <div class="content">
                         <a class="js-acc-btn" href="#">john doe</a>
@@ -348,7 +356,7 @@
                           <div class="image">
                             <a href="#">
                               <img
-                                src="images/icon/avatar-01.jpg"
+                                src="../images/icon/avatar-01.jpg"
                                 alt="John Doe"
                               />
                             </a>
@@ -387,53 +395,60 @@
               <div class="row m-t-10">
                 <div class="col-md-12">
                   <!-- DATA TABLE-->
-                  <div class="table-responsive m-b-40">
-                    <div class="float-left pb-4">
-                      <h3>Academics | College of Education</h3>
-                    </div>
-                    <table class="table table-borderless table-data3">
-                      <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Image</th>
-                          <th>Title</th>
-                          <th>Programs Offered</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <div class="table-data-feature">
-                            <button
-                              class="item"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              title="Edit"
-                            >
-                              <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <a
-                              href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
-                              onclick="confirm('Are you sure you want delete?');"
-                            >
-                              <button
-                                class="item"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Delete"
-                              >
-                                <i class="zmdi zmdi-delete"></i>
-                              </button>
-                            </a>
-                          </div>
-                        </td>
-                      </tbody>
-                    </table>
+                  <div class="float-left">
+                    <h3>Edit | About | Vision</h3>
                   </div>
+                  <br /><br />
+                  <form
+                    action="../backend/edit.php?id=<?php echo $id;?>&action=edit-aboutvis"
+                    method="POST"
+                  >
+                    <?php
+                                      $query=mysqli_query($con,"SELECT * from about_vis where about_vis_id=$id;");
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Title</label>
+                      <input
+                        Required
+                        name="about_vis_newtitle"
+                        type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        value="<?php echo $row['about_vis_title'];?>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1"
+                        >Description</label
+                      >
+                      <textarea
+                        Required
+                        class="form-control"
+                        name="about_vis_newdesc"
+                        
+                        id="exampleFormControlTextarea1"
+                        rows="5"
+                      ><?php echo $row['about_vis_desc'];?></textarea>
+                    </div>
+                    <input
+                      type="submit"
+                      class="btn btn-primary"
+                      value="Update"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <?php
+                }
+                ?>
+                  </form>
+
                   <!-- END DATA TABLE-->
                 </div>
               </div>
