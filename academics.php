@@ -59,7 +59,11 @@
           <a href="contactus.php" class="list">
             <i class="fa fa-phone"></i> CONTACT US</a
           >
-          <a class="btn btn-danger btn-lg" href="http://wmsu-distance-edu-app.online" role="button">
+          <a
+            class="btn btn-danger btn-lg"
+            href="http://wmsu-distance-edu-app.online"
+            role="button"
+          >
             Apply Now
           </a>
         </div>
@@ -74,7 +78,7 @@
                                       {
                                     ?>
       <img
-        src="./sample-img/<?php echo $row['acad_header_img'];?>"
+        src="./<?php echo $row['acad_header_img'];?>"
         class="w-100"
         alt="..."
       />
@@ -89,147 +93,92 @@
     </div>
     <!--Degree Offers-->
     <div class="card p-5 mx-auto w-100 h-auto" id="CTE">
+      <?php
+                                      $query=mysqli_query($con,"select * from acad_edu1");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
       <div class="row g-0">
         <div class="col-md-4">
           <img
-            src="./sample-img/edu-sample.jpg"
+            src="./<?php echo $row['acad_edu1_img'];?>"
             class="img-fluid rounded-start"
-            alt="..."
+            alt="College of Education"
           />
         </div>
         <div class="col-md-8">
           <div class="card-body ps-5" id="CTE">
-            <h5 class="card-title"><b>College of Education</b></h5>
+            <h5 class="card-title">
+              <b><?php echo $row['acad_edu1_title'];?></b>
+            </h5>
             <p class="card-text pt-2">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum."
+              <?php echo $row['acad_edu1_desc'];?>
             </p>
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Programs Offered
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Education Major in Special Education</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Education Major in Guidance and
-                    Counseling</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Education Major in Educational
-                    Administration</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Education Major in Early Childhood Study
-                    and Development</a
-                  >
-                </li>
-              </ul>
-            </div>
+            <a class="btn btn-danger" href="acad_edu.php" role="button">
+              <?php echo $row['acad_edu1_but'];?>
+            </a>
             <p class="card-text pt-3">
-              Enrolled Students:<i class="fa fa-female me-3 ms-3">&nbsp;78</i>
+              Applicants:<i class="fa fa-female me-3 ms-3">&nbsp;78</i>
               <i class="fa fa-male">&nbsp;135</i>
             </p>
             <p class="card-text pt-1">
               <a href="http://wmsu-distance-edu-app.online">
-              <button class="btn btn-danger" type="button">
-                Register Now
-              </button>
+                <button class="btn btn-danger" type="button">
+                  Register Now
+                </button>
               </a>
             </p>
           </div>
         </div>
       </div>
+      <?php
+            }
+      ?>
     </div>
     <div class="card p-5 mx-auto w-100 h-auto" id="CN">
+      <?php
+                                      $query=mysqli_query($con,"select * from acad_nur1");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
       <div class="row g-0">
         <div class="col-md-4">
           <img
-            src="./sample-img/nursing-sample.jpg"
+            src="./<?php echo $row['acad_nur1_img'];?>"
             class="img-fluid rounded-start"
             alt="..."
           />
         </div>
         <div class="col-md-8">
           <div class="card-body ps-5">
-            <h5 class="card-title"><b>College of Nursing</b></h5>
+            <h5 class="card-title">
+              <b><?php echo $row['acad_nur1_title'];?></b>
+            </h5>
             <p class="card-text pt-2">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum."
+              <?php echo $row['acad_nur1_desc'];?>
             </p>
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Programs Offered
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Nursing Major in Nurse Practioner</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Nursing Major in Clinical Nurse
-                    Specialist</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Nursing Major in Certified Nurse
-                    Midwife</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Nursing Major in Public Health</a
-                  >
-                </li>
-              </ul>
-            </div>
+            <a class="btn btn-danger" href="acad_nurse.php" role="button">
+              <?php echo $row['acad_nur1_but'];?>
+            </a>
             <p class="card-text pt-3">
-              Enrolled Students:<i class="fa fa-female me-3 ms-3">&nbsp;102</i>
+              Applicants:<i class="fa fa-female me-3 ms-3">&nbsp;102</i>
               <i class="fa fa-male">&nbsp;105</i>
             </p>
             <p class="card-text pt-1">
               <a href="http://wmsu-distance-edu-app.online">
-              <button class="btn btn-danger" type="button">
-                Register Now
-              </button>
+                <button class="btn btn-danger" type="button">
+                  Register Now
+                </button>
               </a>
             </p>
           </div>
         </div>
       </div>
+      <?php
+            }
+      ?>
     </div>
     <?php
     include ('footer.php');

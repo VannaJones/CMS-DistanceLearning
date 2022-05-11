@@ -58,7 +58,11 @@
           <a href="contactus.php" class="list">
             <i class="fa fa-phone"></i> CONTACT US</a
           >
-          <a class="btn btn-danger btn-lg" href="http://wmsu-distance-edu-app.online" role="button">
+          <a
+            class="btn btn-danger btn-lg"
+            href="http://wmsu-distance-edu-app.online"
+            role="button"
+          >
             Apply Now
           </a>
         </div>
@@ -73,7 +77,7 @@
                                       {
                                     ?>
       <img
-        src="./sample-img/<?php echo $row['adm_header_img'];?>"
+        src="./<?php echo $row['adm_header_img'];?>"
         class="rounded"
         alt="..."
       />
@@ -88,6 +92,12 @@
     <div class="container p-3 ps-10 pe-10">
       <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item" id="admin-req">
+          <?php
+                                      $query=mysqli_query($con,"select * from adm_req");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
           <h2 class="accordion-header" id="flush-headingOne">
             <button
               class="accordion-button collapsed"
@@ -97,7 +107,7 @@
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              Requirements
+              <?php echo $row['adm_req_title'];?>
             </button>
           </h2>
           <div
@@ -107,30 +117,20 @@
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body">
-              <h3>First Category</h3>
-              <ul style="list-style-type: disc">
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-              </ul>
-              <h3>Second Category</h3>
-              <ul style="list-style-type: disc">
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-              </ul>
+              <p><?php echo $row['adm_req_cont'];?></p>
             </div>
           </div>
+          <?php
+            }
+      ?>
         </div>
         <div class="accordion-item">
+          <?php
+                                      $query=mysqli_query($con,"select * from adm_enrol");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
           <h2 class="accordion-header" id="flush-headingTwo">
             <button
               class="accordion-button collapsed"
@@ -140,7 +140,7 @@
               aria-expanded="false"
               aria-controls="flush-collapseTwo"
             >
-              Enrolment Procedure
+              <?php echo $row['adm_enr_title'];?>
             </button>
           </h2>
           <div
@@ -150,50 +150,20 @@
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body">
-              <h4>STEP 1</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <h4>STEP 2</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <h4>STEP 3</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <h4>STEP 4</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <h4>STEP 5</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <h4>STEP 6</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <h4>STEP 7</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <h4>STEP 8</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              <p><?php echo $row['adm_enr_cont'];?></p>
             </div>
           </div>
+          <?php
+            }
+      ?>
         </div>
         <div class="accordion-item">
+          <?php
+                                      $query=mysqli_query($con,"select * from adm_term");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
           <h2 class="accordion-header" id="flush-headingThree">
             <button
               class="accordion-button collapsed"
@@ -203,7 +173,7 @@
               aria-expanded="false"
               aria-controls="flush-collapseThree"
             >
-              Terms and Policy
+              <?php echo $row['adm_term_title'];?>
             </button>
           </h2>
           <div
@@ -213,25 +183,12 @@
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body">
-              <h4>Title 1</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
-              </p>
-              <h4>Title 2</h4>
-              <ul style="list-style-type: disc">
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-              </ul>
+              <p><?php echo $row['adm_term_cont'];?></p>
             </div>
           </div>
+          <?php
+            }
+      ?>
         </div>
       </div>
     </div>

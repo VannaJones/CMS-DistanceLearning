@@ -11,9 +11,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
-    <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>CMS | About Mission</title>
@@ -87,7 +84,7 @@
           <div class="container-fluid">
             <div class="header-mobile-inner">
               <a class="logo" href="index.html">
-                <img src="images/icon/WMSU-DL.png" alt="CoolAdmin" />
+                <img src="images/icon/WMSU-DL.png" alt="WMSU Distance Learning" />
               </a>
               <button class="hamburger hamburger--slider" type="button">
                 <span class="hamburger-box">

@@ -11,9 +11,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
-    <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>CMS | About Mission</title>
@@ -76,7 +73,7 @@
     <link href="../css/theme.css" rel="stylesheet" media="all" />
 
     <!-- Logo Title-->
-    <link rel="icon" type="image/png" href="../sample-img/logo.png" />
+    <link rel="icon" type="image/png" href="../../sample-img/logo.png" />
   </head>
 
   <body>
@@ -215,14 +212,17 @@
       <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
           <a href="#">
-            <img src="../images/icon/WMSU-DL.png" alt="Cool Admin" />
+            <img
+              src="../images/icon/WMSU-DL.png"
+              alt="WMSU Distance Learning"
+            />
           </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
           <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
               <li>
-                <a href="admin_index.html">
+                <a href="admin_index.php">
                   <i class="fas fa-desktop"></i>Dashboard</a
                 >
               </li>
@@ -232,13 +232,13 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="home_banner.html">Home Banner</a>
+                    <a href="../home_banner.php">Home Banner</a>
                   </li>
                   <li>
-                    <a href="home_about.html">Home About</a>
+                    <a href="home_about.php">Home About</a>
                   </li>
                   <li>
-                    <a href="home_programs_offered.html"
+                    <a href="home_programs_offered.php"
                       >Home Programs Offered</a
                     >
                   </li>
@@ -252,17 +252,17 @@
                   <li>
                     <a href="about_header.php">Header</a>
                   </li>
-                  <li>
+                  <li class="active">
                     <a href="about_aboutdesc.php">Distance Learning</a>
                   </li>
-                  <li class="active">
+                  <li>
                     <a href="about_mission.php">Mission</a>
                   </li>
                   <li>
-                    <a href="about_vision.html">Vision</a>
+                    <a href="about_vision.php">Vision</a>
                   </li>
                   <li>
-                    <a href="about_rationale.html">Rationale</a>
+                    <a href="about_rationale.php">Rationale</a>
                   </li>
                 </ul>
               </li>
@@ -272,16 +272,16 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="adm_header.html">Header</a>
+                    <a href="adm_header.php">Header</a>
                   </li>
                   <li>
-                    <a href="adm_req.html">Requirements</a>
+                    <a href="adm_req.php">Requirements</a>
                   </li>
                   <li>
-                    <a href="adm_enrol.html">Enrolment Procedure</a>
+                    <a href="adm_enrol.php">Enrolment Procedure</a>
                   </li>
                   <li>
-                    <a href="adm_term.html">Terms and Policy</a>
+                    <a href="adm_term.php">Terms and Policy</a>
                   </li>
                 </ul>
               </li>
@@ -291,13 +291,13 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="acad_header.html">Header</a>
+                    <a href="acad_header.php">Header</a>
                   </li>
                   <li>
-                    <a href="acad_education.html">College of Education</a>
+                    <a href="acad_education.php">College of Education</a>
                   </li>
                   <li>
-                    <a href="acad_nursing.html">College of Nursing</a>
+                    <a href="acad_nursing.php">College of Nursing</a>
                   </li>
                 </ul>
               </li>
@@ -307,16 +307,16 @@
                 >
                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                   <li>
-                    <a href="#">WMSU Contact</a>
+                    <a href="cont_wmsu.php">WMSU Contact</a>
                   </li>
                   <li>
-                    <a href="#">President's Office</a>
+                    <a href="cont_pres.php">President's Office</a>
                   </li>
                   <li>
-                    <a href="#">Vice President's Office</a>
+                    <a href="cont_vicepres.php">Vice President's Office</a>
                   </li>
                   <li>
-                    <a href="#">Other Contacts</a>
+                    <a href="cont_othercontacts">Other Contacts</a>
                   </li>
                 </ul>
               </li>
@@ -324,7 +324,9 @@
                 <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="#"> <i class="fas fa-globe"></i>View Website</a>
+                <a href="../index.php">
+                  <i class="fas fa-globe"></i>View Website</a
+                >
               </li>
             </ul>
           </nav>
@@ -409,7 +411,7 @@
                     {
                     ?>
                     <div class="form-group">
-                    <p>Add Distance Learning Informations</p>
+                      <p>Add Distance Learning Informations</p>
                       <label for="exampleFormControlInput1">Title</label>
                       <input
                         Required
@@ -428,23 +430,26 @@
                         Required
                         class="form-control"
                         name="about_dl_newdesc"
-                        
                         id="exampleFormControlTextarea1"
                         rows="5"
-                      ><?php echo $row['about_dl_desc'];?></textarea>
+                      >
+<?php echo $row['about_dl_desc'];?></textarea
+                      >
                     </div>
                     <input
                       type="submit"
                       class="btn btn-primary"
                       value="Update"
                     />
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
+                    <a href="../about_aboutdesc.php"
+                      ><button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        Cancel
+                      </button></a
                     >
-                      Cancel
-                    </button>
                     <?php
                 }
                 ?>

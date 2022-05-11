@@ -10,9 +10,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
-    <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>CMS | Admission Enrolment</title>
@@ -195,7 +192,9 @@
                 <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="../index.php"> <i class="fas fa-globe"></i>View Website</a>
+                <a href="../index.php">
+                  <i class="fas fa-globe"></i>View Website</a
+                >
               </li>
             </ul>
           </nav>
@@ -220,6 +219,16 @@
                     <div class="float-left pb-4">
                       <h3>Admission | Enrolment Procedures</h3>
                     </div>
+                    <div class="float-right pb-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#adm_enrol"
+                      >
+                        Add New
+                      </button>
+                    </div>
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
@@ -231,35 +240,50 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <div class="table-data-feature">
-                            <button
-                              class="item"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              title="Edit"
-                            >
-                              <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <a
-                              href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
-                              onclick="confirm('Are you sure you want delete?');"
-                            >
-                              <button
-                                class="item"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Delete"
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from adm_enrol");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['adm_enr_id'];?></td>
+                          <td><?php echo $row['adm_enr_title'];?></td>
+                          <td><?php echo $row['adm_enr_cont'];?></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
+                              <a
+                                href="edit_post/edit_adm_enrol.php?id=<?php echo $row['adm_enr_id'];?>&action=edit-admenrol"
                               >
-                                <i class="zmdi zmdi-delete"></i>
-                              </button>
-                            </a>
-                          </div>
-                        </td>
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Edit"
+                                >
+                                  <i class="zmdi zmdi-edit"></i>
+                                </button>
+                              </a>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['adm_enr_id'];?>&action=del-admenrol"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <?php 
+                      }
+                      ?>
                       </tbody>
                     </table>
                   </div>
@@ -272,6 +296,54 @@
 
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="adm_enrol" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Admission Enrolment Procedures Details</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="./backend/update.php?action=upd-admenrol"
+              method="POST"
+            >
+              <p>Add Enrolment Procedures Informations</p>
+              <input
+                class="form-control w-100 mt-3"
+                type="text"
+                placeholder="Title"
+                name="adm_enr_title"
+              />
+              <br />
+              <textarea
+                name="adm_enr_cont"
+                class="form-control w-100"
+                rows="10"
+                placeholder="Content"
+              ></textarea>
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Jquery JS-->

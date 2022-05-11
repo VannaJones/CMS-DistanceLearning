@@ -25,83 +25,95 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="icon" type="image/png" href="./sample-img/logo.png"/>
+    <link rel="icon" type="image/png" href="./sample-img/logo.png" />
   </head>
-  <div>
-    <!--Upper Navigation Bar-->
+  <body>
+    <div>
+      <!--Upper Navigation Bar-->
 
-    <div class="col top">
-      <div class="topnav container">
-        <a href="https://wmsulibrary.wordpress.com/">eLibrary</a>
-        <a href="http://wmsu.edu.ph/">Student Portal</a>
-      </div>
-    </div>
-
-    <!--Lower Navigations-->
-    <div class="col sectop sticky-top shadow">
-      <div class="secnav container py-2">
-        <img src="./sample-img/WMSU-DL.png" height="75px" class="float-start" />
-        <div class="d-flex align-items-center justify-content-end py-2">
-          <a class="active list" href="index.php">
-            <i class="fa fa-home"></i> HOME</a
-          >
-          <a href="about.php" class="list">
-            <i class="fa fa-lightbulb-o"></i> ABOUT</a
-          >
-          <a href="admissions.php" class="list">
-            <i class="fa fa-university"></i> ADMISSIONS</a
-          >
-          <a href="academics.php" class="list">
-            <i class="fa fa-graduation-cap"></i> ACADEMICS</a
-          >
-          <a href="contactus.php" class="list">
-            <i class="fa fa-phone"></i> CONTACT US</a
-          >
-          <a class="btn btn-danger btn-lg" href="http://wmsu-distance-edu-app.online" role="button">
-            Apply Now
-          </a>
+      <div class="col top">
+        <div class="topnav container">
+          <a href="https://wmsulibrary.wordpress.com/">eLibrary</a>
+          <a href="http://wmsu.edu.ph/">Student Portal</a>
         </div>
       </div>
-    </div>
-    <!--images carousel start-->
-    <div class="">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
+
+      <!--Lower Navigations-->
+      <div class="col sectop sticky-top shadow">
+        <div class="secnav container py-2">
+          <img
+            src="./sample-img/WMSU-DL.png"
+            height="75px"
+            class="float-start"
+          />
+          <div class="d-flex align-items-center justify-content-end py-2">
+            <a class="active list" href="index.php">
+              <i class="fa fa-home"></i> HOME</a
+            >
+            <a href="about.php" class="list">
+              <i class="fa fa-lightbulb-o"></i> ABOUT</a
+            >
+            <a href="admissions.php" class="list">
+              <i class="fa fa-university"></i> ADMISSIONS</a
+            >
+            <a href="academics.php" class="list">
+              <i class="fa fa-graduation-cap"></i> ACADEMICS</a
+            >
+            <a href="contactus.php" class="list">
+              <i class="fa fa-phone"></i> CONTACT US</a
+            >
+            <a
+              class="btn btn-danger btn-lg"
+              href="http://wmsu-distance-edu-app.online"
+              role="button"
+            >
+              Apply Now
+            </a>
+          </div>
         </div>
-        <div class="carousel-inner">
-          <?php
+      </div>
+      <!--images carousel start-->
+      <div class="" >
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <?php
                                      include ('./dbconnect/connection.php');
                                       $query=mysqli_query($con,"select * from home_banner");
                                     
                                       while($row=mysqli_fetch_assoc($query))
                                       {
                                     ?>
-          <div class="carousel-item <?php if($row['hb_id'] == 1 ){ echo "active";}?>" data-bs-interval="10000">
-            <img src="./sample-img/<?php echo $row['img'];?>" class="d-block w-100"/>
+            <div class="carousel-item top-banner text-center
+            <?php if($row['hb_id'] == 1 ){ echo "active";}?>"  style="height: 800px;"
+            data-bs-interval="10000">
+            <img src="./<?php echo $row['img'];?>" class="w-100" />
           </div>
           <?php }?>
         </div>
@@ -126,8 +138,8 @@
       </div>
     </div>
     <!--About Distance Learning-->
-    <div class="p-5" style="background-color: #EEEDED; height: auto; ">
-              <?php
+    <div class="p-5" style="background-color: #eeeded; height: auto">
+      <?php
                                      include ('./dbconnect/connection.php');
                                       $query=mysqli_query($con,"select * from home_about");
                                     
@@ -136,88 +148,108 @@
                                     ?>
       <div class="row container">
         <div class="col-md-9">
-          <h3><b><?php echo $row['ha_title'];?></b></h3>
+          <h3>
+            <b><?php echo $row['ha_title'];?></b>
+          </h3>
           <p><?php echo $row['ha_subtitle'];?></p>
           <p>
-              <?php echo $row['ha_desc'];?>
+            <?php echo $row['ha_desc'];?>
           </p>
-          <a href="about.html"><button type="button" class="btn btn-secondary btn-sm">MORE ABOUT WMSU DISTANCE LEARNING</button></a>
+          <a href="about.php"
+            ><button type="button" class="btn btn-secondary btn-sm">
+              MORE ABOUT WMSU DISTANCE LEARNING
+            </button></a
+          >
         </div>
-      <?php
+        <?php
                                       }
                                       ?>
-      <div class="col d-flex justify-content-center p-2">
-        <img src="./sample-img/logo.png" class="" style="height: 250px;">
+        <div class="col d-flex justify-content-center p-2">
+          <img src="./sample-img/logo.png" class="" style="height: 250px" />
+        </div>
       </div>
-      </div> 
     </div>
     <!--Programs Offered Title-->
-    <div class="p-3 mt-2 justify-content-center text-center" style="height: auto;">
-      <button type="button" class="btn btn-danger btn-lg">Master Degree Programs Offered</button>
+    <div
+      class="p-3 mt-2 justify-content-center text-center"
+      style="height: auto"
+    >
+      <?php
+                                     include ('./dbconnect/connection.php');
+                                      $query=mysqli_query($con,"select * from home_progtitle");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+      <button type="button" class="btn btn-danger btn-lg">
+        <?php echo $row['hpt_title'];?>
+      </button>
+      <?php
+      } ?>
     </div>
     <!--Programs Offered-->
     <div class="p-3 h-auto">
-      <div class="row container justify-content-center text-center">
-        <div class="col-auto mt-3">
-          <img src="./sample-img/logo.png" style="height: 250px;">
-          <h3 class="pt-3">College of Education</h3>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    Masters Degree Offers
-                  </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    <a href="#"><h6>Master of Arts in Education Major in Special Education</h6></a>
-                    <a href="#"><h6>Master of Arts in Education Major in Special Education</h6></a>
-                    <a href="#"><h6>Master of Arts in Education Major in Special Education</h6></a>
-                    <a href="#"><h6>Master of Arts in Education Major in Special Education</h6></a>
-                  </div>
+      <div class="row container justify-content-center text-center mt-3">
+        <?php
+                                     include ('./dbconnect/connection.php');
+                                      $query=mysqli_query($con,"select * from home_progoff");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+        <div class="col-auto mt-3 mb-3">
+          <img src="./<?php echo $row['hpo_logo'];?>" style="height: 250px" />
+          <h3 class="pt-3"><?php echo $row['hpo_potitle'];?></h3>
+
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  Masters Degree Offers
+                </button>
+              </h2>
+              <div
+                id="flush-collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body">
+                  <a href="#" class="text-decoration-none"
+                    ><h6>
+                      Master of Arts in Education Major in Special Education
+                    </h6></a
+                  >
+                  <a href="#" class="text-decoration-none"
+                    ><h6>
+                      Master of Arts in Education Major in Special Education
+                    </h6></a
+                  >
+                  <a href="#" class="text-decoration-none"
+                    ><h6>
+                      Master of Arts in Education Major in Special Education
+                    </h6></a
+                  >
+                  <a href="#" class="text-decoration-none"
+                    ><h6>
+                      Master of Arts in Education Major in Special Education
+                    </h6></a
+                  >
                 </div>
               </div>
             </div>
+          </div>
         </div>
-        <div class="col-auto mt-3">
-          <img src="./sample-img/logo.png" style="height: 250px;">
-          <h3 class="pt-3">College of Nursing</h3>
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Programs Offered
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Nursing Major in Nurse Practioner</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Nursing Major in Clinical Nurse
-                    Specialist</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Nursing Major in Certified Nurse
-                     Midwife</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >Master of Arts in Nursing Major in Public Health</a
-                 >
-                </li>
-              </ul>
-            </div>
-        </div>
+        <?php
+                                      }
+                                      ?>
       </div>
     </div>
     <?php

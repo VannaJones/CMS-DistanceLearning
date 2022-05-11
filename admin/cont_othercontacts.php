@@ -10,9 +10,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
-    <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>CMS | Other Contacts</title>
@@ -186,7 +183,7 @@
                   <li>
                     <a href="cont_vicepres.php">Vice President's Office</a>
                   </li>
-                  <li>
+                  <li class="active">
                     <a href="cont_othercontacts.php">Other Contacts</a>
                   </li>
                 </ul>

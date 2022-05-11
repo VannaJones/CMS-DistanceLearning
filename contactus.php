@@ -73,7 +73,7 @@
           <h3><b>Western Mindanao State University</b></h3>
           <p>Distance Learning Education 2022</p>
           <a href="#"
-            ><button type="button" class="btn btn-primary btn-sm">
+            ><button type="button" class="btn btn-danger btn-sm">
               <i class="fa fa-envelope"></i> wmsu@wmsu.edu.ph
             </button></a
           >
@@ -81,10 +81,16 @@
             <i class="fa fa-map-marker"></i>&nbsp;&nbsp; Normal Road, Baliwasan,
             Zamboanga City, Philippines 7000
           </p>
-          <p><i class="fa fa-phone"></i>&nbsp;&nbsp;991-1040 | 992-4238</p>
         </div>
         <div class="col d-flex justify-content-center p-2">
-          <img src="./sample-img/contactus.jpg" class="" style="height: 250px" />
+                                              <?php
+                                      $query=mysqli_query($con,"select * from cont_header");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+          <img src="./<?php echo $row['cont_header_img'];?>" class="" style="height: 250px" />
+                                            <?php } ?>
         </div>
       </div>
     </div>
@@ -92,20 +98,33 @@
     <div class="row container">
       <div class="col">
         <div class="card mb-3" style="max-width: 540px">
+                                    <?php
+                                      $query=mysqli_query($con,"select * from cont_pres");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
           <div class="row g-0">
             <div class="col-md-4">
               <img
-                src="./sample-img/nursing-sample.jpg"
+                src="./<?php echo $row['cont_pres_img'];?>"
                 class="img-fluid rounded-start"
                 alt="..."
               />
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">President's Office</h5>
+                <h5 class="card-title"><?php echo $row['cont_pres_title'];?></h5>
+                <?php } ?>
                 <p class="card-text">
-                  <i class="fa fa-phone"></i>&nbsp;&nbsp;991-1040<br />
-                  <i class="fa fa-phone"></i>&nbsp;&nbsp;992-4238
+                                    <?php
+                                      $query=mysqli_query($con,"select * from cont_pres2");
+                                    
+                                      while($row=mysqli_fetch_assoc($query))
+                                      {
+                                    ?>
+                  <i class="fa fa-phone"></i>&nbsp;&nbsp;<?php echo $row['cont_pres2_cont'];?><br />
+                  <?php } ?>
                 </p>
               </div>
             </div>
@@ -150,7 +169,7 @@
     <!--Sub Contacts Title-->
     <div
       class="container justify-content-center p-2"
-      style="height: auto; background-color: #1c62b0"
+      style="height: auto; background-color: #a20202"
     >
       <h4 class="text-center pt-2" style="color: aliceblue">
         <b>Other Contacts</b>
@@ -158,7 +177,7 @@
     </div>
     <!--Other Contacts-->
     <div class="container justify-content-center pt-3">
-      <table class="table table-bordered border-primary">
+      <table class="table table-bordered border-danger">
                                   <?php
                                       $query=mysqli_query($con,"select * from cont_other");
                                     

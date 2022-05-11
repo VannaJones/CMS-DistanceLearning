@@ -72,7 +72,7 @@
                                       while($row=mysqli_fetch_assoc($query))
                                       {
                                     ?>
-      <img src="./sample-img/<?php echo $row['about_img'];?>" class="w-100" alt="..." />
+      <img src="./<?php echo $row['about_img'];?>" class="w-100" alt="..." />
               <?php 
                                       }
                                       ?>

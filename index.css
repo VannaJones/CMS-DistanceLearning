@@ -2,6 +2,38 @@
 * {
   font-family: "Poppins";
 }
+.top-banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-title {
+  background-color: #a20202;
+  color: white;
+}
+.bg-content {
+  background-color: #ff818128;
+  color: black;
+}
+.bg-pdf {
+  background-color: #eee;
+  color: black;
+}
+.accordion-button {
+  background-color: #ff818128;
+  /* border: solid 2px #a20202; */
+}
+.accordion-button:not(.collapsed) {
+  color: #000000;
+  background-color: #ff818118;
+  border: solid 2px #a20202;
+}
+.accordion-body a {
+  color: #000000;
+}
+.accordion-body a:hover {
+  color: #a20202;
+}
 body {
   margin: 0;
   padding: 0;

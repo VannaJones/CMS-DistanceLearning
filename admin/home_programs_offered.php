@@ -10,9 +10,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
-    <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>CMS | Home Programs Offered</title>
@@ -195,7 +192,9 @@
                 <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="../index.php"> <i class="fas fa-globe"></i>View Website</a>
+                <a href="../index.php">
+                  <i class="fas fa-globe"></i>View Website</a
+                >
               </li>
             </ul>
           </nav>
@@ -216,11 +215,76 @@
               <div class="row m-t-10">
                 <div class="col-md-12">
                   <!-- DATA TABLE-->
+                  <!-- First Table -->
                   <div class="table-responsive m-b-40">
                     <div class="float-left pb-4">
                       <h3>Home | Programs Offered</h3>
                     </div>
                     <div class="float-right pb-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#hpo_progtitle"
+                      >
+                        Add New
+                      </button>
+                    </div>
+                    <table class="table table-borderless table-data3">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th></th>
+                          <th>Main Title</th>
+                          <th></th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from home_progtitle");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['hpt_id'];?></td>
+                          <td></td>
+                          <td><?php echo $row['hpt_title'];?></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
+                              <button
+                                class="item"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Edit"
+                              >
+                                <i class="zmdi zmdi-edit"></i>
+                              </button>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['hpt_id'];?>&action=del-progtitle"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <?php
+                      }
+                      ?>
+                      </tbody>
+                    </table>
+                      <!-- Second Table -->
+                    <div class="float-right pb-4 mt-4">
                       <button
                         type="button"
                         class="btn btn-info float-right"
@@ -235,7 +299,7 @@
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Title</th>
+                          <th></th>
                           <th>Logo</th>
                           <th>Programs Offered</th>
                           <th>Action</th>
@@ -250,9 +314,11 @@
                                     ?>
                         <tr>
                           <td><?php echo $row['hpo_id'];?></td>
-                          <td><?php echo $row['hpo_title'];?></td>
-                          <td><?php echo $row['hpo_logo'];?></td>
-                          <td><?php echo $row['hpo_progoff'];?></td>
+                          <td></td>
+                          <td>
+                            <img src="../<?php echo $row['hpo_logo']?>" />
+                          </td>
+                          <td><?php echo $row['hpo_potitle'];?></td>
                           <td>
                             <div class="table-data-feature">
                               <button
@@ -264,7 +330,7 @@
                                 <i class="zmdi zmdi-edit"></i>
                               </button>
                               <a
-                                href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
+                                href="./backend/delete.php?id=<?php echo $row['hpo_id'];?>&action=del-progoff"
                                 onclick="confirm('Are you sure you want delete?');"
                               >
                                 <button
@@ -284,6 +350,22 @@
                         </tr>
                       </tbody>
                     </table>
+                    <!-- <div class="container">
+                      <a
+                        class="btn btn-info mt-5"
+                        href="acad_nurse.php"
+                        role="button"
+                      >
+                        Go to College of Education Master Degree Courses Offers
+                      </a>
+                      <a
+                        class="btn btn-info mt-2"
+                        href="acad_nurse.php"
+                        role="button"
+                      >
+                        Go to College of Nursing Master Degree Courses Offers
+                      </a>
+                    </div> -->
                   </div>
                   <!-- END DATA TABLE-->
                 </div>
@@ -296,7 +378,50 @@
         <!-- END PAGE CONTAINER-->
       </div>
     </div>
-        <!-- Modal -->
+    <!-- Modal First Table -->
+    <div class="modal" id="hpo_progtitle" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Home Programs Offered Details</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="./backend/update.php?action=upd-progtitle"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <p>Program Offer Header Title</p>
+              <br />
+              <input
+                class="form-control w-100"
+                type="text"
+                placeholder="Main Title"
+                name="hpt_title"
+              />
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Second Table-->
     <div class="modal" id="hpo_progoff" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -312,32 +437,22 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="./backend/update.php" method="POST">
-              <p>Add Program</p>
+            <form
+              action="./backend/update.php?action=upd-hprogoff"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <p>Add Name for the Program Offer</p>
               <input
                 class="form-control w-100 mt-3"
                 type="text"
-                placeholder="Title"
-                name="hpo_title"
+                placeholder="Program Name"
+                name="hpo_potitle"
               />
               <br />
-              <label class="label">Add Logo Image</label>
+              <label class="label">Add Program Image</label>
               <input type="file" name="hpo_logo" class="img-banner" />
               <br />
-              <br />
-              <input
-                class="form-control w-100"
-                type="text"
-                placeholder="Sub Title"
-                name="ha_subtitle"
-              />
-              <br />
-              <textarea
-                name="ha_desc"
-                class="form-control w-100"
-                rows="10"
-                placeholder="Description"
-              ></textarea>
               <br />
               <input type="submit" class="btn btn-primary" value="Update" />
               <button

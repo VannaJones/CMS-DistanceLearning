@@ -10,10 +10,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
-    <meta name="keywords" content="au theme template" />
-
     <!-- Title Page-->
     <title>CMS | Academics Header</title>
 
@@ -251,7 +247,7 @@
                           <td><?php echo $row['acad_header_id']; ?></td>
                           <td>
                             <img
-                              src="../sample-img/<?php echo $row['acad_header_img']; ?>"
+                              src="../<?php echo $row['acad_header_img']; ?>"
                             />
                           </td>
                           <td><?php echo $row['acad_header_title']; ?></td>
@@ -326,7 +322,7 @@
           <div class="modal-body">
             <form
               action="./backend/insert-banner.php?action=add-acadheader"
-              method="POST"
+              method="POST" enctype="multipart/form-data"
             >
               <p>Add Academics Header Details</p>
               <input

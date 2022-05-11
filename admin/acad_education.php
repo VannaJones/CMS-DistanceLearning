@@ -10,9 +10,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
-    <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
     <title>CMS | Academics College of Education</title>
@@ -195,7 +192,9 @@
                 <a href="#"> <i class="fas fa-archive"></i>Drafts</a>
               </li>
               <li>
-                <a href="../index.php"> <i class="fas fa-globe"></i>View Website</a>
+                <a href="../index.php">
+                  <i class="fas fa-globe"></i>View Website</a
+                >
               </li>
             </ul>
           </nav>
@@ -216,9 +215,20 @@
               <div class="row m-t-10">
                 <div class="col-md-12">
                   <!-- DATA TABLE-->
+                  <!-- Table 1 -->
                   <div class="table-responsive m-b-40">
                     <div class="float-left pb-4">
                       <h3>Academics | College of Education</h3>
+                    </div>
+                    <div class="float-right pb-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#acad_edu1"
+                      >
+                        Add New
+                      </button>
                     </div>
                     <table class="table table-borderless table-data3">
                       <thead>
@@ -226,40 +236,183 @@
                           <th>ID</th>
                           <th>Image</th>
                           <th>Title</th>
-                          <th>Programs Offered</th>
+                          <th>Description</th>
+                          <th>Button Name</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <div class="table-data-feature">
-                            <button
-                              class="item"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              title="Edit"
-                            >
-                              <i class="zmdi zmdi-edit"></i>
-                            </button>
-                            <a
-                              href="delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
-                              onclick="confirm('Are you sure you want delete?');"
-                            >
-                              <button
-                                class="item"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Delete"
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from acad_edu1");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['acad_edu1_id'];?></td>
+                          <td>
+                            <img src="../<?php echo $row['acad_edu1_img']?>" />
+                          </td>
+                          <td><?php echo $row['acad_edu1_title'];?></td>
+                          <td><?php echo $row['acad_edu1_desc'];?></td>
+                          <td><?php echo $row['acad_edu1_but'];?></td>
+                          <td>
+                            <div class="table-data-feature">
+                              <a
+                                href="edit_post/edit_acad_edu1.php?id=<?php echo $row['acad_edu1_id'];?>&action=edit-acadedu1"
                               >
-                                <i class="zmdi zmdi-delete"></i>
-                              </button>
-                            </a>
-                          </div>
-                        </td>
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Edit"
+                                >
+                                  <i class="zmdi zmdi-edit"></i>
+                                </button>
+                              </a>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['acad_edu1_id'];?>&action=del-acadedu1"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <?php
+                      }
+                      ?>
+                      </tbody>
+                    </table>
+                    <!-- Table 2 -->
+                    <div class="float-right pb-4 pt-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#acad_edu2"
+                      >
+                        Add Master Degree Course
+                      </button>
+                    </div>
+                    <table class="table table-borderless table-data3 mt-4">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Master Degree Course</th>
+                          <th></th>
+                          <th></th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from acad_edu2");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['acad_edu2_id'];?></td>
+                          <td><?php echo $row['acad_edu2_mas'];?></td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
+                              <a
+                                href="edit_post/edit_acad_edu2.php?id=<?php echo $row['acad_edu2_id'];?>&action=edit-acadedu2"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Edit"
+                                >
+                                  <i class="zmdi zmdi-edit"></i>
+                                </button>
+                              </a>
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['acad_edu2_id'];?>&action=del-acadedu2"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <?php 
+                      }
+                      ?>
+                      </tbody>
+                    </table>
+                    <!-- Table 3 -->
+                    <div class="float-right pb-4 pt-4">
+                      <button
+                        type="button"
+                        class="btn btn-info float-right"
+                        data-toggle="modal"
+                        data-target="#acad_edu3"
+                      >
+                        Add PDF File
+                      </button>
+                    </div>
+                    <table class="table table-borderless table-data3 mt-4">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Downloadble PDF File</th>
+                          <th>Filename</th>
+                          <th></th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                                     require ('../dbconnect/connection.php');
+                                      $query=mysqli_query($con,"SELECT * from acad_edu3");
+                                      while($row=mysqli_fetch_array($query))
+                                      {
+                                    ?>
+                        <tr>
+                          <td><?php echo $row['acad_edu3_id'];?></td>
+                          <td><?php echo $row['acad_edu3_file'];?></td>
+                          <td><?php echo $row['acad_edu3_filename'];?></td>
+                          <td></td>
+                          <td>
+                            <div class="table-data-feature">
+                              <a
+                                href="./backend/delete.php?id=<?php echo $row['acad_edu3_id'];?>&action=del-edufile"
+                                onclick="confirm('Are you sure you want delete?');"
+                              >
+                                <button
+                                  class="item"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="Delete"
+                                >
+                                  <i class="zmdi zmdi-delete"></i>
+                                </button>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <?php 
+                      }
+                      ?>
                       </tbody>
                     </table>
                   </div>
@@ -272,6 +425,155 @@
 
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
+      </div>
+    </div>
+    <!-- Modal First Table-->
+    <div class="modal" id="acad_edu1" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Academics Programs Description</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="./backend/update.php?action=upd-acadedu1"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <p>Add Name for the Program Offer</p>
+              <input
+                class="form-control w-100 mt-3"
+                type="text"
+                placeholder="Program Name"
+                name="acad_edu1_title"
+              />
+              <br />
+              <p>Add Label for the Master Degree Courses Button</p>
+              <input
+                class="form-control w-100 mt-3"
+                type="text"
+                placeholder="Button Label Name"
+                name="acad_edu1_but"
+              />
+              <br />
+              <label class="label">Add Program Image</label>
+              <input type="file" name="acad_edu1_img" class="img-acad" />
+              <br />
+              <br />
+              <textarea
+                name="acad_edu1_desc"
+                class="form-control w-100"
+                rows="10"
+                placeholder="Program Description"
+              ></textarea>
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Second Table-->
+    <div class="modal" id="acad_edu2" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Program Master Degree Courses</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="./backend/update.php?action=upd-acadedu2"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <p>Add Master Degree Course</p>
+              <br />
+              <textarea
+                name="acad_edu2_mas"
+                class="form-control w-100"
+                rows="5"
+                placeholder="Degree Course Name"
+              ></textarea>
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Third Table-->
+    <div class="modal" id="acad_edu3" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Education Downloadble PDF File</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="./backend/insert-banner.php?action=add-edufile"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <input
+                class="form-control w-100 mt-3"
+                type="text"
+                placeholder="Add Filename to display"
+                name="acad_edu3_filename"
+              />
+              <br />
+              <label class="label">Add Downloadble PDF File</label>
+              <input type="file" name="acad_edu3_file" class="img-acad" />
+              <br />
+              <br />
+              <input type="submit" class="btn btn-primary" value="Update" />
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Jquery JS-->

@@ -10,10 +10,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="au theme template" />
-    <meta name="author" content="Hau Nguyen" />
-    <meta name="keywords" content="au theme template" />
-
     <!-- Title Page-->
     <title>CMS | Home Banner</title>
 
@@ -251,21 +247,13 @@
                           <td><?php echo $row['hb_id']; ?></td>
                           <td>
                             <img
-                              src="<?php echo $row['img']?>"
+                              src="../<?php echo $row['img']?>"
                             />
                           </td>
                           <td></td>
                           <td></td>
                           <td>
                             <div class="table-data-feature">
-                              <button
-                                class="item"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Edit"
-                              >
-                                <i class="zmdi zmdi-edit"></i>
-                              </button>
                               <a
                                 href="./backend/delete.php?id=<?php echo $row['hb_id'];?>&action=del-banner"
                                 onclick="confirm('Are you sure you want delete?');"
@@ -326,7 +314,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="./backend/insert-banner.php?action=add-banner" method="POST">
+            <form action="./backend/insert-banner.php?action=add-banner" method="POST" enctype="multipart/form-data">
               <p>Please input image to display.</p>
               <label class="label">Image</label>
               <input type="file" name="hb_img" class="img-banner" />
